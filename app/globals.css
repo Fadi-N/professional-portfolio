@@ -3,19 +3,70 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #fffcf4;
+    --foreground: #0a0a0a;
+    --font-poppins: 'Poppins';
+    --font-size: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}*/
+
+@layer components {
+    .navbar {
+        @apply flex items-center justify-between px-10 py-8 text-[0.87rem];
+
+        .navbar-links {
+            @apply flex-1;
+        }
+    }
+
+    .about {
+        @apply flex flex-col space-y-14;
+
+        .about-intro, .about-details {
+            @apply flex-1 flex justify-between space-x-12;
+        }
+    }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+    html {
+        font-size: var(--font-size);
+    }
+
+    body {
+        color: var(--foreground);
+        background: var(--background);
+        font-family: var(--font-poppins), "Poppins Placeholder", sans-serif;
+    }
+
+    h1 {
+        @apply text-[3.25rem] font-bold leading-[3.875rem];
+    }
+
+    h2 {
+        @apply text-3xl font-semibold;
+    }
+
+    h3 {
+        @apply text-2xl font-medium;
+    }
+
+    h4 {
+        @apply text-xl font-medium leading-[1.375rem];
+    }
+
+    h5 {
+        @apply text-lg font-medium;
+    }
+
+    h6 {
+        @apply text-[1.125rem] font-medium;
+    }
 }
+
