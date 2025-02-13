@@ -1,11 +1,18 @@
 import React from 'react';
+import Image from "next/image";
 
 const AboutPage = () => {
     return (
         <main className="about">
             <div className="about-intro">
-                <div className="flex-1 bg-gray-300 h-[600px] flex justify-center items-center rounded-xl">
-                    <h3>Picture</h3>
+                <div className="flex justify-center items-center rounded-xl relative w-[450px] h-[600px]">
+                    <Image
+                        src="/about-picture.jpg"
+                        alt="react.png"
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-xl"
+                    />
                 </div>
                 <div className="flex-1 flex flex-col py-6 space-y-10">
                     <div className="flex-1">

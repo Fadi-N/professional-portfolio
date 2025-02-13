@@ -18,15 +18,22 @@
 
 @layer components {
     .navbar {
-        @apply flex items-center justify-between px-10 py-8 text-[0.87rem];
+        @apply flex items-center justify-between px-10 py-8;
 
         .navbar-links {
             @apply flex-1;
         }
     }
 
+    .hero {
+        @apply py-16;
+        .hero-intro {
+            @apply flex flex-col items-center justify-between space-y-10;
+        }
+    }
+
     .about {
-        @apply flex flex-col space-y-14;
+        @apply flex flex-col space-y-14 py-16;
 
         .about-intro, .about-details {
             @apply flex-1 flex justify-between space-x-12;
