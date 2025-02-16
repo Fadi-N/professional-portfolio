@@ -172,19 +172,22 @@ export default function Home() {
 
                 <div className="flex flex-col space-y-4">
                     <div className="flex space-x-16">
-                        <div className="hero-stack">
+                        <div className="hero-stack group hover:cursor-pointer transition-all duration-300">
                             <div
-                                className="flex items-center justify-between border  md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
+                                className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
                                 <FaReact size={32}/>
                             </div>
                             <div className="flex-1">
                                 <h5>React</h5>
                                 <div className="flex items-center justify-between">
                                     <p className="hero-stack-description">A JavaScript library for building UI</p>
-                                    <FaArrowRight className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                    <FaArrowRight
+                                        className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl transform transition-transform duration-300 group-hover:-rotate-45 group-hover:text-[#74b5a5]"
+                                    />
                                 </div>
                             </div>
                         </div>
+
                         <div className="hero-stack">
                             <div
                                 className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
@@ -276,7 +279,18 @@ export default function Home() {
             <div className="hero-featured-work">
                 <div className="flex flex-col space-y-2">
                     <h1>Featured Works</h1>
-                    <p className="text-[#bd80b8]">A selection of projects where I’ve put my skills to the test—building, designing, and refining experiences that matter.</p>
+                    <p className="text-[#bd80b8]">A selection of projects where I’ve put my skills to the test—building,
+                        designing, and refining experiences that matter.</p>
+                </div>
+            </div>
+            <div id="contact" className="hero-featured-contact">
+                <div className="flex flex-col items-center justify-center space-y-2">
+                    <h1 className="">Need a Frontend Developer? Let's talk! 💬</h1>
+                    <h3 className="text-[#bd80b8]">We can team up and build something great. Drop me a message!</h3>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                    <p>Contact me:</p>
+                    <p>fadinachawati17@gmail.com</p>
                 </div>
             </div>
         </main>
