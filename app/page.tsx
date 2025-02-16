@@ -2,6 +2,12 @@
 
 import {motion} from "motion/react";
 import Image from "next/image";
+import {FaArrowRight, FaReact} from "react-icons/fa6";
+import {SiBootstrap, SiFigma, SiJavascript, SiNextdotjs, SiTailwindcss, SiTypescript} from "react-icons/si";
+import {IoLogoJavascript} from "react-icons/io";
+import {BsBootstrap} from "react-icons/bs";
+import {TbBrandNextjs, TbBrandTypescript} from "react-icons/tb";
+import {RiJavascriptLine} from "react-icons/ri";
 
 const containerVariants = {
     hidden: {},
@@ -155,6 +161,122 @@ export default function Home() {
                         <span className="relative inline-flex size-2 rounded-full bg-[#00CA50]"></span>
                     </span>
                     <p>Open to Work</p>
+                </div>
+            </div>
+            <div className="hero-my-stacks">
+                <div className="flex flex-col space-y-2">
+                    <h1>My Stacks</h1>
+                    <p className="text-[#bd80b8]">Always learning and exploring new trends and techniques to keep things
+                        fresh and improve my skills.</p>
+                </div>
+
+                <div className="flex flex-col space-y-4">
+                    <div className="flex space-x-16">
+                        <div className="hero-stack">
+                            <div
+                                className="flex items-center justify-between border  md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
+                                <FaReact size={32}/>
+                            </div>
+                            <div className="flex-1">
+                                <h5>React</h5>
+                                <div className="flex items-center justify-between">
+                                    <p className="hero-stack-description">A JavaScript library for building UI</p>
+                                    <FaArrowRight className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hero-stack">
+                            <div
+                                className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
+                                <TbBrandNextjs size={32}/>
+                            </div>
+                            <div className="flex-1">
+                                <h5>Next.js</h5>
+                                <div className="flex items-center justify-between">
+                                    <p className="hero-stack-description">The React framework for the web</p>
+                                    <FaArrowRight className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex space-x-16">
+                        <div className="hero-stack">
+                            <div
+                                className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
+                                <RiJavascriptLine size={32}/>
+                            </div>
+                            <div className="flex-1">
+                                <h5>JavaScript</h5>
+                                <div className="flex items-center justify-between">
+                                    <p className="hero-stack-description">The language of the web</p>
+                                    <FaArrowRight className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hero-stack">
+                            <div
+                                className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
+                                <TbBrandTypescript size={32}/>
+                            </div>
+                            <div className="flex-1">
+                                <h5>TypeScript</h5>
+                                <div className="flex items-center justify-between">
+                                    <p className="hero-stack-description">JavaScript with static types</p>
+                                    <FaArrowRight className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex space-x-16">
+                        <div className="hero-stack">
+                            <div
+                                className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
+                                <BsBootstrap size={32}/>
+                            </div>
+                            <div className="flex-1">
+                                <h5>Bootstrap</h5>
+                                <div className="flex items-center justify-between">
+                                    <p className="hero-stack-description">A responsive CSS framework</p>
+                                    <FaArrowRight className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hero-stack">
+                            <div
+                                className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
+                                <SiTailwindcss size={32}/>
+                            </div>
+                            <div className="flex-1">
+                                <h5>Tailwind CSS</h5>
+                                <div className="flex items-center justify-between">
+                                    <p className="hero-stack-description">Utility-first CSS framework</p>
+                                    <FaArrowRight className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex space-x-16">
+                        <div className="hero-stack">
+                            <div
+                                className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2">
+                                <SiFigma size={32}/>
+                            </div>
+                            <div className="flex-1">
+                                <h5>Figma</h5>
+                                <div className="flex items-center justify-between">
+                                    <p className="hero-stack-description">Design and prototyping tool</p>
+                                    <FaArrowRight className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div className="hero-featured-work">
+                <div className="flex flex-col space-y-2">
+                    <h1>Featured Works</h1>
+                    <p className="text-[#bd80b8]">A selection of projects where I’ve put my skills to the test—building, designing, and refining experiences that matter.</p>
                 </div>
             </div>
         </main>
