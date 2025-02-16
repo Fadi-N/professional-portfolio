@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import {FaGithub, FaLinkedinIn} from "react-icons/fa6";
+import Link from "next/link";
 
 const AboutPage = () => {
     return (
@@ -122,8 +123,12 @@ const AboutPage = () => {
                         <div>
                             <h5>Social</h5>
                             <div className="flex space-x-2">
-                                <FaLinkedinIn className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
-                                <FaGithub className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                <Link href="https://www.linkedin.com/in/fadi-nachawati-64246b256/">
+                                    <FaLinkedinIn className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </Link>
+                                <Link href="https://github.com/Fadi-N">
+                                    <FaGithub className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                </Link>
                             </div>
                         </div>
                     </div>
