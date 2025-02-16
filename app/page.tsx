@@ -23,7 +23,7 @@ export default function Home() {
             <div className="hero-intro space-y-8">
                 <div className="flex items-center">
                     <motion.p
-                        className="text-[11.25rem] leading-[12rem] flex"
+                        className="hero-intro-paragraph"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -56,13 +56,13 @@ export default function Home() {
                             rotate: {delay: 2, duration: 4, ease: "linear", repeat: Infinity},
                         }}
                     >
-                        <Image src="/react.png" alt="react.png" width={100} height={100}/>
+                        <Image src="/react.png" alt="react.png" width={150} height={150}/>
                     </motion.div>
                 </div>
 
                 <div>
                     <motion.p
-                        className="text-[11.25rem] leading-[12rem] flex"
+                        className="hero-intro-paragraph"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -100,7 +100,7 @@ export default function Home() {
 
                 <div className="flex relative">
                     <motion.p
-                        className="flex-1 text-[11.25rem] leading-[13rem] flex"
+                        className="hero-intro-paragraph"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -149,7 +149,7 @@ export default function Home() {
                     </motion.div>
                 </div>
 
-                <div className="flex items-center gap-2 text-sm text-geist-1000">
+                <div className="flex items-center gap-2 text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl;">
                     <span className="relative flex size-2">
                         <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#00AC3A]"></span>
                         <span className="relative inline-flex size-2 rounded-full bg-[#00CA50]"></span>
