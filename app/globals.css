@@ -18,7 +18,7 @@
 
 @layer components {
     .navbar {
-        @apply flex items-center justify-between px-10 py-8;
+        @apply flex items-center justify-between bg-transparent px-10 py-4 lg:py-8 xl:py-10 2xl:py-12 text-base lg:text-lg xl:text-xl 2xl:text-2xl;
 
         .navbar-links {
             @apply flex-1;
@@ -27,16 +27,40 @@
 
     .hero {
         @apply py-16;
+
         .hero-intro {
             @apply flex flex-col items-center justify-between space-y-10;
         }
     }
 
     .about {
-        @apply flex flex-col space-y-14 py-16;
+        @apply flex flex-col;
 
         .about-intro, .about-details {
-            @apply flex-1 flex justify-between space-x-12;
+            @apply flex-1 flex justify-between md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20;
+        }
+
+        .about-intro {
+
+            p {
+                @apply text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl;
+            }
+
+            .about-intro-image-container {
+                @apply relative rounded xl:rounded-xl 2xl:rounded-2xl w-[300px] h-[400px] md:w-[350px] md:h-[467px] lg:w-[450px] lg:h-[600px] xl:w-[500px] xl:h-[667px] 2xl:w-[600px] 2xl:h-[800px]
+            }
+
+            .about-intro-content-container {
+                @apply flex-1 flex flex-col md:space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14 py-4 lg:py-8 xl:py-10 2xl:py-12;
+            }
+        }
+
+        .about-details {
+            @apply py-4 lg:py-8 xl:py-10 2xl:py-12;
+
+            p {
+                @apply text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl;
+            }
         }
     }
 }
@@ -53,27 +77,28 @@
     }
 
     h1 {
-        @apply text-[3.25rem] font-bold leading-[3.875rem];
+        @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-[3rem] md:leading-[3rem] lg:leading-[3.5rem] xl:leading-[3.875rem] 2xl:leading-[4.5rem];
     }
 
     h2 {
-        @apply text-3xl font-semibold;
+        @apply text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl leading-[2.5rem] md:leading-[2.5rem] lg:leading-[2.75rem] xl:leading-[3rem] 2xl:leading-[3.25rem];
     }
 
     h3 {
-        @apply text-2xl font-medium;
+        @apply text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-[2.25rem] md:leading-[2.25rem] lg:leading-[2.5rem] xl:leading-[2.75rem] 2xl:leading-[3rem];
     }
 
     h4 {
-        @apply text-xl font-medium leading-[1.375rem];
+        @apply text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl leading-[1.75rem] md:leading-[1.75rem] lg:leading-[2rem] xl:leading-[2.25rem] 2xl:leading-[2.5rem] font-medium;
     }
 
     h5 {
-        @apply text-lg font-medium;
+        @apply text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl leading-[1.5rem] md:leading-[1.5rem] lg:leading-[1.75rem] xl:leading-[2rem] 2xl:leading-[2.25rem] font-medium;
     }
 
     h6 {
-        @apply text-[1.125rem] font-medium;
+        @apply text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl leading-[1.25rem] md:leading-[1.25rem] lg:leading-[1.5rem] xl:leading-[1.75rem] 2xl:leading-[2rem] font-medium;
     }
+
 }
 
