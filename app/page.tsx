@@ -2,11 +2,7 @@
 
 import {motion} from "motion/react";
 import Image from "next/image";
-import {FaArrowRight, FaReact} from "react-icons/fa6";
-import {SiFigma, SiTailwindcss} from "react-icons/si";
-import {BsBootstrap} from "react-icons/bs";
-import {TbBrandNextjs, TbBrandTypescript} from "react-icons/tb";
-import {RiJavascriptLine} from "react-icons/ri";
+import {FaArrowRight} from "react-icons/fa6";
 import TechStack from "@/components/tech-stack";
 
 const containerVariants = {
@@ -181,6 +177,35 @@ export default function Home() {
                     <p className="text-[#bd80b8]">A selection of projects where I’ve put my skills to the test—building,
                         designing, and refining experiences that matter.</p>
                 </div>
+                <div
+                    className="flex-1 bg-[#74b5a5] p-4 md:p-6 lg:p-6 xl:p-6 2xl:p-8 rounded md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl space-y-2">
+                    <div className="flex justify-between">
+                        <p>2024</p>
+                        <p>Website</p>
+                    </div>
+                    <div className="border-t"></div>
+                    <div>
+                        <div className="flex items-center justify-between">
+                            <h1>3D iPhone Website</h1>
+                            <FaArrowRight
+                                className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 hover:-rotate-45"/>
+                        </div>
+                        <h3>
+                            This interactive 3D website presents an immersive experience of exploring the iPhone model
+                        </h3>
+                        <p>Description</p>
+                        <div className="relative w-full h-96">
+                            <Image
+                                src="/sample.jpg"
+                                alt="sample"
+                                layout="fill"
+                                objectFit="cover"
+                                className="rounded-xl"
+                            />
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div id="contact" className="hero-featured-contact">
                 <div className="flex flex-col items-center justify-center space-y-2">
