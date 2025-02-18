@@ -1,62 +1,61 @@
 "use client"; // jeśli używasz Next.js 13+ z app router
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import {motion, useScroll, useTransform} from "framer-motion";
 
 export default function OverlappingCards() {
-    // Wyciągamy "progres" scrolla w zakresie 0–1
-    const { scrollYProgress } = useScroll();
+    const {scrollYProgress} = useScroll();
 
-    // Definiujemy przesunięcia w osi Y dla każdej karty w zależności od scrolla:
-    // Dla [0, 1] –> [początkowa wartość, końcowa wartość]
-    const card1Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
-    const card2Y = useTransform(scrollYProgress, [0, 1], [200, -100]);
-    const card3Y = useTransform(scrollYProgress, [0, 1], [400, 0]);
+    const card1Y = useTransform(scrollYProgress, [0.15, .95], [260, -160]);
+    const card2Y = useTransform(scrollYProgress, [0.3, .95], [300, -120]);
+    const card3Y = useTransform(scrollYProgress, [0.45, .95], [340, -80]);
+    const card4Y = useTransform(scrollYProgress, [0.6, .95], [380, -40]);
+    const card5Y = useTransform(scrollYProgress, [0.75, .95], [420, 0]);
 
     return (
-        // Kontener z dużą wysokością, by umożliwić scroll
-        <div className="relative h-[400vh]">
-            {/* KARTA 1 */}
+        <div className="relative h-[600vh]">
             <motion.div
-                style={{ y: card1Y }}
-                className="
-          sticky top-0
-          h-screen
-          flex items-center justify-center
-          z-10
-        "
+                style={{y: card1Y}}
+                className="sticky top-0 h-screen flex items-center justify-center z-30"
             >
-                <div className="w-[300px] h-[400px] bg-red-500 text-white flex items-center justify-center rounded-lg">
+                <div className="w-full h-[800px] bg-[#c59172]">
                     Card 1
                 </div>
             </motion.div>
 
-            {/* KARTA 2 (nakłada się na 1) */}
             <motion.div
-                style={{ y: card2Y }}
-                className="
-          sticky top-0
-          h-screen
-          flex items-center justify-center
-          z-20
-        "
+                style={{y: card2Y}}
+                className="sticky top-0 h-screen flex items-center justify-center z-30"
             >
-                <div className="w-[300px] h-[400px] bg-blue-500 text-white flex items-center justify-center rounded-lg">
+                <div className="w-full h-[800px] bg-[#ccb987] text-white flex items-center justify-center rounded-lg">
                     Card 2
                 </div>
             </motion.div>
 
-            {/* KARTA 3 (nakłada się na 2) */}
             <motion.div
-                style={{ y: card3Y }}
-                className="
-          sticky top-0
-          h-screen
-          flex items-center justify-center
-          z-30
-        "
+                style={{y: card3Y}}
+                className="sticky top-0 h-screen flex items-center justify-center z-30"
             >
-                <div className="w-[300px] h-[400px] bg-green-500 text-white flex items-center justify-center rounded-lg">
+                <div
+                    className="w-full h-[800px] bg-[#79a978] text-white flex items-center justify-center rounded-lg">
                     Card 3
+                </div>
+            </motion.div>
+            <motion.div
+                style={{y: card4Y}}
+                className="sticky top-0 h-screen flex items-center justify-center z-30"
+            >
+                <div
+                    className="w-full h-[800px] bg-[#6ba6ef] text-white flex items-center justify-center rounded-lg">
+                    Card 4
+                </div>
+            </motion.div>
+            <motion.div
+                style={{y: card5Y}}
+                className="sticky top-0 h-screen flex items-center justify-center z-30"
+            >
+                <div
+                    className="w-full h-[800px] bg-[#9c9cf8] text-white flex items-center justify-center rounded-lg">
+                    Card5
                 </div>
             </motion.div>
         </div>
