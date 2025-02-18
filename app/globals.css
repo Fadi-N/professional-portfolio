@@ -42,7 +42,7 @@
             }
 
             .hero-stack {
-                @apply  flex-1 flex items-center space-x-4 border-b py-4 md:py-6 lg:py-6 xl:py-8 2xl:py-10;
+                @apply flex-1 flex items-center space-x-4 border-b py-4 md:py-6 lg:py-6 xl:py-8 2xl:py-10;
 
                 p {
                     @apply text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl;
@@ -50,15 +50,40 @@
             }
         }
 
-        .hero-featured-work{
+        .hero-featured-work {
             @apply py-4 lg:py-8 xl:py-10 2xl:py-12 space-y-2 md:space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12;
+
             p {
                 @apply text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl;
             }
+
+            .overlapping-cards {
+                @apply relative h-[600vh];
+
+                .overlapping-card {
+                    @apply w-full h-[1000px] flex flex-col rounded md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl;
+
+                    .overlapping-card-header {
+                        @apply flex justify-between py-4 lg:p-4 xl:p-6 2xl:p-8 border-b;
+                        p {
+                            @apply text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl;
+                        }
+                    }
+
+                    .overlapping-card-body {
+                        @apply flex flex-col space-y-4 md:space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14 py-4 lg:p-4 xl:p-6 2xl:p-8;
+
+                        p {
+                            @apply text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl;
+                        }
+                    }
+                }
+            }
         }
 
-        .hero-featured-contact{
+        .hero-featured-contact {
             @apply flex flex-col py-4 lg:py-8 xl:py-10 2xl:py-12 space-y-2 md:space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12;
+
             p {
                 @apply text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl;
             }

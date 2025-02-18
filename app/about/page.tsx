@@ -13,7 +13,7 @@ const AboutPage = () => {
                         src="/about-picture.jpg"
                         alt="react.png"
                         layout="fill"
-                        objectFit="cover"
+                        style={{objectFit: "cover"}}
                         className="rounded-xl"
                     />
                 </div>
