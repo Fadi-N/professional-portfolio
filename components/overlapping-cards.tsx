@@ -3,14 +3,33 @@
 import {motion, useScroll, useTransform} from "framer-motion";
 import {FaArrowRight} from "react-icons/fa6";
 import Image from "next/image";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 export default function OverlappingCards() {
     const {scrollYProgress} = useScroll();
 
+    const useIsMobile = () => {
+        const [isMobile, setIsMobile] = useState(false);
+
+        useEffect(() => {
+            const checkMobile = () => setIsMobile(window.innerWidth < 768);
+            checkMobile();
+            window.addEventListener("resize", checkMobile);
+            return () => window.removeEventListener("resize", checkMobile);
+        }, []);
+
+        return isMobile;
+    }
+
+    const isMobile = useIsMobile();
+
     const cards = [
         {
-            cardY: useTransform(scrollYProgress, [0.4, .95], [100, -160]),
+            cardY: useTransform(
+                scrollYProgress,
+                [0.4, 0.95],
+                isMobile ? [50, -80] : [100, -160]
+            ),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -28,7 +47,11 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useTransform(scrollYProgress, [0.3, .95], [280, -120]),
+            cardY: useTransform(
+                scrollYProgress,
+                [0.3, 0.95],
+                isMobile ? [120, -60] : [280, -120]
+            ),
             bgColor: "bg-[#79a978]",
             year: "2023",
             shortcut: "Website | PIM",
@@ -46,7 +69,11 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useTransform(scrollYProgress, [0.45, .95], [340, -80]),
+            cardY: useTransform(
+                scrollYProgress,
+                [0.45, 0.95],
+                isMobile ? [150, -40] : [340, -80]
+            ),
             bgColor: "bg-[#74b5a5]",
             year: "2022",
             shortcut: "Website | RentMe",
@@ -64,7 +91,11 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useTransform(scrollYProgress, [0.6, .95], [380, -40]),
+            cardY: useTransform(
+                scrollYProgress,
+                [0.6, 0.95],
+                isMobile ? [170, -20] : [380, -40]
+            ),
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
             shortcut: "Website | Your Waiter | Coming soon",
@@ -82,7 +113,11 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useTransform(scrollYProgress, [0.75, .95], [420, 0]),
+            cardY: useTransform(
+                scrollYProgress,
+                [0.75, 0.95],
+                isMobile ? [190, 0] : [420, 0]
+            ),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
             shortcut: "Website | AI Gen | Comming soon",
@@ -125,7 +160,8 @@ export default function OverlappingCards() {
                                     <h3>{card.subtitle}</h3>
                                 </div>
                             </div>
-                            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
+                            <div
+                                className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
                                 <div>
                                     <h4>{card.description1.title}</h4>
                                     <p>{card.description1.description}</p>
