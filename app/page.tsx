@@ -188,7 +188,20 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col items-center justify-center">
                     <p>Contact me:</p>
-                    <p>fadinachawati17@gmail.com</p>
+                    <h4>
+                        <div className="flex items-center space-x-2 group ">
+                            <a
+                                className="transition-colors duration-300 group-hover:text-[#74b5a5]"
+                                href="mailto:fadinachawati17@gmail.com"
+                            >
+                                fadinachawati17@gmail.com
+                            </a>
+                            <FaArrowRight
+                                className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl transform transition-all duration-300 group-hover:-rotate-45 group-hover:text-[#74b5a5]"
+                            />
+                        </div>
+
+                    </h4>
                 </div>
             </div>
         </main>

@@ -58,7 +58,7 @@
             }
 
             .overlapping-cards {
-                @apply relative h-[600vh];
+                @apply relative h-[550vh];
 
                 .overlapping-card {
                     @apply w-full h-[1000px] flex flex-col rounded md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl;
@@ -82,7 +82,7 @@
         }
 
         .hero-featured-contact {
-            @apply flex flex-col py-4 lg:py-8 xl:py-10 2xl:py-12 space-y-2 md:space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12;
+            @apply flex flex-col py-96 space-y-2 md:space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12;
 
             p {
                 @apply text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl;

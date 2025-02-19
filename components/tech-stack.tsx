@@ -62,15 +62,15 @@ const TechStack = () => {
                     href={stack.link}
                 >
                     <div
-                        className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2 group-hover:text-[#74b5a5]">
+                        className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2 transition-colors duration-300 group-hover:text-[#74b5a5]">
                         {stack.icon}
                     </div>
                     <div className="flex-1">
-                        <h5 className="group-hover:text-[#74b5a5]">{stack.title}</h5>
+                        <h5 className="transition-colors duration-300 group-hover:text-[#74b5a5]">{stack.title}</h5>
                         <div className="flex items-center justify-between">
-                            <p className="hero-stack-description group-hover:text-[#74b5a5]">{stack.description}</p>
+                            <p className="hero-stack-description transition-colors duration-300 group-hover:text-[#74b5a5]">{stack.description}</p>
                             <FaArrowRight
-                                className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl transform transition-transform duration-300 group-hover:-rotate-45 group-hover:text-[#74b5a5]"/>
+                                className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl transform transition-all duration-300 group-hover:-rotate-45 group-hover:text-[#74b5a5]"/>
                         </div>
                     </div>
                 </Link>
