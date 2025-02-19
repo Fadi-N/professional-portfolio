@@ -183,7 +183,7 @@ export default function Home() {
             </div>
             <div id="contact" className="hero-featured-contact">
                 <div className="flex flex-col items-center justify-center space-y-2">
-                    <h1 className="text-center md:text-start">Need a Frontend Developer? Let's talk! 💬</h1>
+                    <h1 className="text-center md:text-start">Need a Frontend Developer? Let&apos;s talk! 💬</h1>
                     <h3 className="text-center md:text-start text-[#bd80b8]">We can team up and build something great. Drop me a message!</h3>
                 </div>
                 <div className="flex flex-col items-center justify-center">

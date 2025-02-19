@@ -25,9 +25,9 @@ const AboutPage = () => {
                     </div>
 
                     <p>
-                        I'm Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
+                        I&apos;m Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
                         smooth, fast, and good-looking web apps.
-                        I am pursuing my Master's degree at the Warsaw University of Technology.
+                        I am pursuing my Master&apos;s degree at the Warsaw University of Technology.
                     </p>
                     <p>
                         I mainly work with React and Next.js, creating scalable UX/UI and making sure everything
