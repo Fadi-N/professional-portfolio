@@ -51,7 +51,7 @@ export default function Home() {
                         </motion.span>
                     </motion.p>
                     <motion.div
-                        className="flex items-center mx-14"
+                        className="items-center md:mx-14 hidden md:flex"
                         initial={{rotate: 0, opacity: 0}}
                         animate={{rotate: 360, opacity: 1}}
                         transition={{
@@ -139,7 +139,7 @@ export default function Home() {
                         </motion.span>
                     </motion.p>
                     <motion.div
-                        className="absolute end-0 bottom-0"
+                        className="absolute end-0 bottom-0 hidden md:block"
                         initial={{opacity: 0, x: 0, y: 0}}
                         animate={{opacity: 1, x: [0, -300, 0], y: [0, -200, 0]}}
                         transition={{
@@ -183,12 +183,12 @@ export default function Home() {
             </div>
             <div id="contact" className="hero-featured-contact">
                 <div className="flex flex-col items-center justify-center space-y-2">
-                    <h1 className="">Need a Frontend Developer? Let's talk! 💬</h1>
-                    <h3 className="text-[#bd80b8]">We can team up and build something great. Drop me a message!</h3>
+                    <h1 className="text-center md:text-start">Need a Frontend Developer? Let's talk! 💬</h1>
+                    <h3 className="text-center md:text-start text-[#bd80b8]">We can team up and build something great. Drop me a message!</h3>
                 </div>
                 <div className="flex flex-col items-center justify-center">
-                    <p>Contact me:</p>
-                    <h4>
+                    <p className="text-center md:text-start">Contact me:</p>
+                    <h4 className="text-center md:text-start">
                         <div className="flex items-center space-x-2 group ">
                             <a
                                 className="transition-colors duration-300 group-hover:text-[#74b5a5]"

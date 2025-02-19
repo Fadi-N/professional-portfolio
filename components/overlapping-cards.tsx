@@ -139,7 +139,7 @@ export default function OverlappingCards() {
                                     src={card.src}
                                     alt="react.png"
                                     fill={true}
-                                    className="rounded lg:rounded-md xl:rounded-lg 2xl:rounded-xl !relative !h-[510px]"
+                                    className="rounded-md xl:rounded-lg 2xl:rounded-xl !relative !h-[510px]"
                                 />
                             </div>
                         </div>

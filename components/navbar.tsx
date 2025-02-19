@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
     return (
-        <nav className="navbar">
+        <nav className="navbar hidden lg:flex">
             <div className="navbar-logo">
                 FADI NACHAWATI
             </div>

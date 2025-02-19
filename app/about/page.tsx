@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from "next/image";
-import {FaGithub, FaLinkedinIn} from "react-icons/fa6";
+import {FaArrowRight, FaGithub, FaLinkedinIn} from "react-icons/fa6";
 import Link from "next/link";
 
 const AboutPage = () => {
@@ -25,7 +25,7 @@ const AboutPage = () => {
                     </div>
 
                     <p>
-                        I'm Fadi, a <span className="font-semibold">Frontend Developer</span> who loves building
+                        I'm Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
                         smooth, fast, and good-looking web apps.
                         I am pursuing my Master's degree at the Warsaw University of Technology.
                     </p>
@@ -118,15 +118,31 @@ const AboutPage = () => {
                     <div className="flex flex-col space-y-4 text-sm">
                         <div>
                             <h5>Email</h5>
-                            <p>fadinachawati17@gmail.com</p>
+                            <div className="flex items-center space-x-2 group ">
+                                <a
+                                    className="transition-colors duration-300 group-hover:text-[#74b5a5]"
+                                    href="mailto:fadinachawati17@gmail.com"
+                                >
+                                    fadinachawati17@gmail.com
+                                </a>
+                                <FaArrowRight
+                                    className="transform transition-all duration-300 group-hover:-rotate-45 group-hover:text-[#74b5a5]"
+                                />
+                            </div>
                         </div>
                         <div>
                             <h5>Social</h5>
                             <div className="flex space-x-2">
-                                <Link href="https://www.linkedin.com/in/fadi-nachawati-64246b256/">
+                                <Link
+                                    className="transition-colors duration-300 hover:text-[#74b5a5]"
+                                    href="https://www.linkedin.com/in/fadi-nachawati-64246b256/"
+                                >
                                     <FaLinkedinIn className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
                                 </Link>
-                                <Link href="https://github.com/Fadi-N">
+                                <Link
+                                    className="transition-colors duration-300 hover:text-[#74b5a5]"
+                                    href="https://github.com/Fadi-N"
+                                >
                                     <FaGithub className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
                                 </Link>
                             </div>

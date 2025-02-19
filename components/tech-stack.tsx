@@ -52,17 +52,17 @@ const techStacks = [
 
 const TechStack = () => {
     return (
-        <div className="grid grid-cols-2 gap-x-16">
+        <div className="grid md:grid-cols-2 gap-x-16">
             {techStacks.map((stack, index) => (
                 <Link
                     key={index}
                     className={`hero-stack group hover:cursor-pointer transition-all duration-300 ${
-                        index === techStacks.length - 1 ? "col-span-2" : ""
+                        index === techStacks.length - 1 ? "md:col-span-2" : ""
                     }`}
                     href={stack.link}
                 >
                     <div
-                        className="flex items-center justify-between border md:rounded-md lg:rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2 transition-colors duration-300 group-hover:text-[#74b5a5]">
+                        className="flex items-center justify-between border rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2 transition-colors duration-300 group-hover:text-[#74b5a5]">
                         {stack.icon}
                     </div>
                     <div className="flex-1">
