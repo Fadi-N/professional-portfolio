@@ -1,6 +1,6 @@
-"use client";
+"use client"; // jeśli używasz Next.js 13+ z app router
 
-import {motion, useScroll, useSpring, useTransform} from "framer-motion";
+import {motion, useScroll, useTransform} from "framer-motion";
 import {FaArrowRight} from "react-icons/fa6";
 import Image from "next/image";
 import React from "react";
@@ -10,7 +10,7 @@ export default function OverlappingCards() {
 
     const cards = [
         {
-            cardY: useSpring(scrollYProgress, { stiffness: 100, damping: 20 }),
+            cardY: useTransform(scrollYProgress, [0.4, .95], [100, -160]),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -28,7 +28,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useSpring(scrollYProgress, { stiffness: 120, damping: 18 }),
+            cardY: useTransform(scrollYProgress, [0.3, .95], [280, -120]),
             bgColor: "bg-[#79a978]",
             year: "2023",
             shortcut: "Website | PIM",
@@ -46,7 +46,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useSpring(scrollYProgress, { stiffness: 140, damping: 16 }),
+            cardY: useTransform(scrollYProgress, [0.45, .95], [340, -80]),
             bgColor: "bg-[#74b5a5]",
             year: "2022",
             shortcut: "Website | RentMe",
@@ -64,7 +64,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useSpring(scrollYProgress, { stiffness: 160, damping: 14 }),
+            cardY: useTransform(scrollYProgress, [0.6, .95], [380, -40]),
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
             shortcut: "Website | Your Waiter | Coming soon",
@@ -82,7 +82,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useSpring(scrollYProgress, { stiffness: 180, damping: 12 }),
+            cardY: useTransform(scrollYProgress, [0.75, .95], [420, 0]),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
             shortcut: "Website | AI Gen | Comming soon",
@@ -139,10 +139,9 @@ export default function OverlappingCards() {
                             <div className="flex-1">
                                 <Image
                                     src={card.src}
-                                    alt={card.title}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    className="rounded-lg"
+                                    alt="react.png"
+                                    fill={true}
+                                    className="rounded-xl !relative"
                                 />
                             </div>
                         </div>
