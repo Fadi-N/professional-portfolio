@@ -61,7 +61,7 @@
                 @apply relative h-[550vh];
 
                 .overlapping-card {
-                    @apply w-full  h-[1000px] flex flex-col rounded-lg xl:rounded-xl 2xl:rounded-2xl;
+                    @apply w-full h-[39rem] md:h-[62.5rem] flex flex-col rounded-2xl;
 
                     .overlapping-card-header {
                         @apply flex justify-between p-4 xl:p-6 2xl:p-8 border-b;
@@ -71,7 +71,7 @@
                     }
 
                     .overlapping-card-body {
-                        @apply flex flex-col space-y-4 md:space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14 p-4 xl:p-6 2xl:p-8;
+                        @apply flex flex-col space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14 p-4 xl:p-6 2xl:p-8;
 
                         p {
                             @apply text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl;
@@ -134,7 +134,7 @@
     }
 
     h1 {
-        @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-[3rem] md:leading-[3rem] lg:leading-[3.5rem] xl:leading-[3.875rem] 2xl:leading-[4.5rem] font-medium;
+        @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-[2rem] md:leading-[3rem] lg:leading-[3.5rem] xl:leading-[3.875rem] 2xl:leading-[4.5rem] font-medium;
     }
 
     h2 {

@@ -116,14 +116,16 @@ export default function OverlappingCards() {
                         </div>
                         <div className="overlapping-card-body">
                             <div className="flex flex-col space-y-2">
-                                <div className="flex items-center justify-between">
+                                <div className="flex items-baseline md:items-center justify-between">
                                     <h1>{card.title}</h1>
                                     <FaArrowRight
                                         className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 hover:-rotate-45"/>
                                 </div>
-                                <h3>{card.subtitle}</h3>
+                                <div className="hidden md:block">
+                                    <h3>{card.subtitle}</h3>
+                                </div>
                             </div>
-                            <div className="flex md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
+                            <div className="flex flex-col md:flex-row space-y-4 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
                                 <div>
                                     <h4>{card.description1.title}</h4>
                                     <p>{card.description1.description}</p>
@@ -139,7 +141,7 @@ export default function OverlappingCards() {
                                     src={card.src}
                                     alt="react.png"
                                     fill={true}
-                                    className="rounded-md xl:rounded-lg 2xl:rounded-xl !relative !h-[510px]"
+                                    className="rounded-xl !relative"
                                 />
                             </div>
                         </div>
