@@ -17,16 +17,12 @@
 }*/
 
 @layer components {
-    .navbar, .mobile-navbar {
-        @apply flex items-center justify-between bg-transparent px-4 md:px-10 py-4 lg:py-8 xl:py-10 2xl:py-12 text-base lg:text-lg xl:text-xl 2xl:text-2xl;
+    .navbar {
+        @apply flex items-center justify-between bg-transparent px-10 py-4 lg:py-8 xl:py-10 2xl:py-12 text-base lg:text-lg xl:text-xl 2xl:text-2xl;
 
         .navbar-links {
             @apply flex-1;
         }
-    }
-
-    .mobile-navbar-link{
-        @apply  fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 transform transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-6 text-[#bd80b8] text-2xl z-10
     }
 
     .hero {
