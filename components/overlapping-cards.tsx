@@ -125,7 +125,7 @@ export default function OverlappingCards() {
                                     <h3>{card.subtitle}</h3>
                                 </div>
                             </div>
-                            <div className="flex flex-col md:flex-row space-y-4 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
+                            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
                                 <div>
                                     <h4>{card.description1.title}</h4>
                                     <p>{card.description1.description}</p>

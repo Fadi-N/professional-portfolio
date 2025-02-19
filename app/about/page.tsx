@@ -74,7 +74,7 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex-1 flex flex-col space-y-4 md:space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
+                <div className="flex-1 flex flex-col space-y-10 xl:space-y-12 2xl:space-y-14">
                     <div className="flex flex-col space-y-2">
                         <h4>Experience</h4>
                         <div className="flex flex-col space-y-4 text-sm">
