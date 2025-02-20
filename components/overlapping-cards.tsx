@@ -60,7 +60,7 @@ export default function OverlappingCards() {
                 title: "Smooth Reservations & Performance",
                 description: "Easily book, cancel, and track trips. Built with Next.js and Prisma for seamless routing, authentication, and data management."
             },
-            stack: "JavaScript, React, Next.js, Tailwind, Prisma",
+            stack: "TypeScript, React, Next.js, Tailwind, Prisma",
             src: "/sample.jpg"
         },
         {
@@ -68,35 +68,35 @@ export default function OverlappingCards() {
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
             shortcut: "Website | Your Waiter | Coming soon",
-            title: "Bringing the iPhone to life in 3D",
-            subtitle: "An immersive, real-time 3D experience built with Three.js & React Three Fiber",
+            title: "A Smart & Seamless Dining Experience",
+            subtitle: "QR code ordering, instant payments, and a seamless restaurant experience.",
             description1: {
-                title: "360° Exploration",
-                description: "Interact with a fully-rendered iPhone model, exploring every detail from any angle."
+                title: "Order, Pay & Enjoy – All from Your Phone",
+                description: "Simply scan a QR code to explore the menu, place orders, and pay—no need to wait for a waiter"
             },
             description2: {
-                title: "Smooth Animations & UI",
-                description: "GSAP-powered animations ensure seamless transitions and a dynamic user experience"
+                title: "Optimized Workflow & Faster Service",
+                description: "Automated order processing, reduced wait times, and better table management for an improved dining experience."
             },
-            stack: "JavaScript, React, Three.js, React Three Fiber, GSAP, Tailwind CSS",
+            stack: "TypeScript, React, Next.js, Tailwind CSS, MongoDB, Stripe",
             src: "/sample.jpg"
         },
         {
             cardY: useTransform(scrollYProgress, [0.75, .95], [420, 0]),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
-            shortcut: "Website | AI Gen | Comming soon",
-            title: "Bringing the iPhone to life in 3D",
-            subtitle: "An immersive, real-time 3D experience built with Three.js & React Three Fiber",
+            shortcut: "Website | AIGen | Comming soon",
+            title: "AI-Powered Code Documentation & Quiz Generator",
+            subtitle: "Transforming code into clear documentation and interactive learning experiences.",
             description1: {
-                title: "360° Exploration",
-                description: "Interact with a fully-rendered iPhone model, exploring every detail from any angle."
+                title: "Automated Documentation Generation",
+                description: "Generate structured, easy-to-read technical documentation directly from your code, enhancing clarity and collaboration."
             },
             description2: {
-                title: "Smooth Animations & UI",
-                description: "GSAP-powered animations ensure seamless transitions and a dynamic user experience"
+                title: "Interactive Quizzes & Learning",
+                description: "Convert documentation into quizzes to reinforce knowledge, test understanding, and improve developer engagement"
             },
-            stack: "JavaScript, React, Three.js, React Three Fiber, GSAP, Tailwind CSS",
+            stack: "React, FastAPI, Tailwind CSS, OpenAI API",
             src: "/sample.jpg"
         }
     ]
@@ -109,7 +109,7 @@ export default function OverlappingCards() {
                     style={{y: card.cardY}}
                     className="sticky top-0 h-screen flex items-center justify-center z-30"
                 >
-                    <div className={`overlapping-card text-white ${card.bgColor}`}>
+                    <div className={`overlapping-card group text-white ${card.bgColor}`}>
                         <div className="overlapping-card-header">
                             <p>{card.year}</p>
                             <p>{card.shortcut}</p>
@@ -119,7 +119,7 @@ export default function OverlappingCards() {
                                 <div className="flex items-baseline md:items-center justify-between">
                                     <h1>{card.title}</h1>
                                     <FaArrowRight
-                                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 hover:-rotate-45"/>
+                                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
                                 </div>
                                 <div className="hidden md:block">
                                     <h3>{card.subtitle}</h3>
