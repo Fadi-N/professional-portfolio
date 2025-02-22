@@ -1,6 +1,6 @@
 "use client"; // jeśli używasz Next.js 13+ z app router
 
-import {motion, useScroll, useTransform} from "framer-motion";
+import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import {FaArrowRight} from "react-icons/fa6";
 import Image from "next/image";
 import React from "react";
@@ -8,9 +8,14 @@ import React from "react";
 export default function OverlappingCards() {
     const {scrollYProgress} = useScroll();
 
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        const percentage = latest * 100;
+        console.log(`Scroll: ${percentage.toFixed(2)}%`);
+    });
+
     const cards = [
         {
-            cardY: useTransform(scrollYProgress, [0.4, .95], [100, -160]),
+            cardY: useTransform(scrollYProgress, [0, .39, 1], [0, 0, -400]),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -28,7 +33,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useTransform(scrollYProgress, [0.3, .95], [280, -120]),
+            cardY: useTransform(scrollYProgress, [0.23, 0.36, 1], [-200, 90, -300]),
             bgColor: "bg-[#79a978]",
             year: "2023",
             shortcut: "Website | PIM",
@@ -46,7 +51,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useTransform(scrollYProgress, [0.45, .95], [340, -80]),
+            cardY: useTransform(scrollYProgress, [0.36, 0.48, 1], [-200, 90, -200]),
             bgColor: "bg-[#74b5a5]",
             year: "2022",
             shortcut: "Website | RentMe",
@@ -64,7 +69,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useTransform(scrollYProgress, [0.6, .95], [380, -40]),
+            cardY: useTransform(scrollYProgress, [0.48, 0.61, 1], [-200, 90, -100]),
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
             shortcut: "Website | Your Waiter | Coming soon",
@@ -82,7 +87,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg"
         },
         {
-            cardY: useTransform(scrollYProgress, [0.75, .95], [420, 0]),
+            cardY: useTransform(scrollYProgress, [0.61, 0.73, 1], [-200, 100, 0]),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
             shortcut: "Website | AIGen | Comming soon",
@@ -107,7 +112,7 @@ export default function OverlappingCards() {
                 <motion.div
                     key={index}
                     style={{y: card.cardY}}
-                    className="sticky top-0 h-screen flex items-center justify-center z-30"
+                    className="sticky top-10 lg:top-40 flex items-center justify-center z-30"
                 >
                     <div className={`overlapping-card group text-white ${card.bgColor}`}>
                         <div className="overlapping-card-header">
@@ -125,7 +130,8 @@ export default function OverlappingCards() {
                                     <h3>{card.subtitle}</h3>
                                 </div>
                             </div>
-                            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
+                            <div
+                                className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
                                 <div>
                                     <h4>{card.description1.title}</h4>
                                     <p>{card.description1.description}</p>
