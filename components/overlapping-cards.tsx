@@ -38,7 +38,7 @@ export default function OverlappingCards() {
 
     const cards = [
         {
-            cardY: useTransform(scrollYProgress, [0, 0.35, 1], [0, 0, -400 * scaleFactor]),
+            cardY: useTransform(scrollYProgress, [0, 0.35, .87], [0, 0, 0]),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -58,8 +58,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.23, 0.35, 1],
-                [-200 * scaleFactor, 90 * scaleFactor, -300 * scaleFactor]
+                [0.23, 0.35, .83, .87],
+                [-200 * scaleFactor, 90 * scaleFactor, 90, 0]
             ),
             bgColor: "bg-[#79a978]",
             year: "2023",
@@ -80,8 +80,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.35, 0.5, 1],
-                [-200 * scaleFactor, 90 * scaleFactor, -200 * scaleFactor]
+                [0.35, 0.5, .83, .87],
+                [-200 * scaleFactor, 180 * scaleFactor, 180, 0]
             ),
             bgColor: "bg-[#74b5a5]",
             year: "2022",
@@ -104,8 +104,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.5, 0.66, 1],
-                [-200 * scaleFactor, 90 * scaleFactor, -100 * scaleFactor]
+                [0.5, 0.66, .83, .87],
+                [-200 * scaleFactor, 270 * scaleFactor, 270, 0]
             ),
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
@@ -128,8 +128,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.66, 0.81, 1],
-                [-200 * scaleFactor, 90 * scaleFactor, 0]
+                [0.66, 0.81, .83, .87],
+                [-200 * scaleFactor, 360 * scaleFactor, 360, 0]
             ),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
@@ -157,7 +157,7 @@ export default function OverlappingCards() {
                 <motion.div
                     key={index}
                     style={{y: card.cardY}}
-                    className="sticky top-10 lg:top-40 flex items-center justify-center z-30"
+                    className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
                 >
                     <div className={`overlapping-card group text-white ${card.bgColor}`}>
                         <div className="overlapping-card-header">
@@ -188,12 +188,12 @@ export default function OverlappingCards() {
                             </div>
                             <p>Tech Stack – {card.stack}</p>
                             <div className="flex-1">
-                                <Image
+                                {/*<Image
                                     src={card.src}
                                     alt="react.png"
                                     fill={true}
                                     className="rounded-xl !relative"
-                                />
+                                />*/}
                             </div>
                         </div>
                     </div>
