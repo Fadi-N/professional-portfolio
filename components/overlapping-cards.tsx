@@ -1,12 +1,12 @@
 "use client";
 
-import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
-import {FaArrowRight} from "react-icons/fa6";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 import Image from "next/image";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 function useWindowSize() {
-    const [windowSize, setWindowSize] = useState({width: 1080, height: 1080});
+    const [windowSize, setWindowSize] = useState({ width: 1080, height: 1080 });
 
     useEffect(() => {
         function handleResize() {
@@ -25,20 +25,21 @@ function useWindowSize() {
 }
 
 export default function OverlappingCards() {
-    const {scrollYProgress} = useScroll();
-    const {height} = useWindowSize();
+    const { scrollYProgress } = useScroll();
+    const { height, width } = useWindowSize();
 
-    const scaleFactor = height / 1080;
+    // Dynamiczne skalowanie w zależności od rozmiaru ekranu
+    const scaleFactor = Math.min(height / 1080, width / 1920);
+    const cardSpacing = Math.min(90 * scaleFactor, 90);
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-            const percentage = latest * 100;
-            console.log(`Scroll: ${percentage.toFixed(2)}%`);
-        }
-    );
+        const percentage = latest * 100;
+        console.log(`Scroll: ${percentage.toFixed(2)}%`);
+    });
 
     const cards = [
         {
-            cardY: useTransform(scrollYProgress, [0, 0.35, .87], [0, 0, 0]),
+            cardY: useTransform(scrollYProgress, [0, 0.35, 0.87], [0, 0, 0]),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -58,8 +59,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.23, 0.35, .83, .87],
-                [-200 * scaleFactor, 90 * scaleFactor, 90, 0]
+                [0.23, 0.35, 0.83, 0.87],
+                [-cardSpacing, cardSpacing, cardSpacing, 0]
             ),
             bgColor: "bg-[#79a978]",
             year: "2023",
@@ -80,8 +81,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.35, 0.5, .83, .87],
-                [-200 * scaleFactor, 180 * scaleFactor, 180, 0]
+                [0.35, 0.5, 0.83, 0.87],
+                [-cardSpacing * 2, cardSpacing * 2, cardSpacing * 2, 0]
             ),
             bgColor: "bg-[#74b5a5]",
             year: "2022",
@@ -104,8 +105,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.5, 0.66, .83, .87],
-                [-200 * scaleFactor, 270 * scaleFactor, 270, 0]
+                [0.5, 0.66, 0.83, 0.87],
+                [-cardSpacing * 3, cardSpacing * 3, cardSpacing * 3, 0]
             ),
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
@@ -128,8 +129,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.66, 0.81, .83, .87],
-                [-200 * scaleFactor, 360 * scaleFactor, 360, 0]
+                [0.66, 0.81, 0.83, 0.87],
+                [-cardSpacing * 4, cardSpacing * 4, cardSpacing * 4, 0]
             ),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
@@ -152,52 +153,69 @@ export default function OverlappingCards() {
     ];
 
     return (
-        <div className="overlapping-cards">
+        <div className="overlapping-cards min-h-[200vh] sm:min-h-[150vh]">
             {cards.map((card, index) => (
                 <motion.div
                     key={index}
-                    style={{y: card.cardY}}
-                    className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
+                    style={{
+                        y: card.cardY,
+                        marginBottom: `${cardSpacing}px`
+                    }}
+                    className="sticky top-4 sm:top-10 lg:top-16 flex items-center justify-center z-30 px-2 sm:px-4"
                 >
-                    <div className={`overlapping-card group text-white ${card.bgColor}`}>
-                        <div className="overlapping-card-header">
-                            <p>{card.year}</p>
-                            <p>{card.shortcut}</p>
+                    <div className={`overlapping-card group text-white ${card.bgColor} 
+                        w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-4xl lg:max-w-5xl xl:max-w-6xl
+                        rounded-xl p-4 sm:p-6 lg:p-8 shadow-lg hover:-translate-y-1 transition-transform`}>
+                        <div className="overlapping-card-header flex flex-col sm:flex-row justify-between gap-2 mb-4">
+                            <p className="text-sm sm:text-base">{card.year}</p>
+                            <p className="text-sm sm:text-base">{card.shortcut}</p>
                         </div>
-                        <div className="overlapping-card-body">
+                        <div className="overlapping-card-body space-y-4 sm:space-y-6">
                             <div className="flex flex-col space-y-2">
-                                <div className="flex items-baseline md:items-center justify-between">
-                                    <h1>{card.title}</h1>
-                                    <FaArrowRight
-                                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
+                                <div className="flex items-baseline justify-between">
+                                    <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl">
+                                        {card.title}
+                                    </h1>
+                                    <FaArrowRight className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl
+                                        transform transition-transform duration-300 group-hover:-rotate-45"/>
                                 </div>
-                                <div className="hidden md:block">
-                                    <h3>{card.subtitle}</h3>
-                                </div>
-                            </div>
-                            <div
-                                className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
-                                <div>
-                                    <h4>{card.description1.title}</h4>
-                                    <p>{card.description1.description}</p>
-                                </div>
-                                <div>
-                                    <h4>{card.description2.title}</h4>
-                                    <p>{card.description2.description}</p>
+                                <div className="hidden sm:block">
+                                    <h3 className="text-sm sm:text-base lg:text-lg">
+                                        {card.subtitle}
+                                    </h3>
                                 </div>
                             </div>
-                            <p>Tech Stack – {card.stack}</p>
-                            <div className="flex-1">
-                                {/*<Image
+                            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8">
+                                <div className="flex-1">
+                                    <h4 className="text-base sm:text-lg lg:text-xl">
+                                        {card.description1.title}
+                                    </h4>
+                                    <p className="text-sm sm:text-base">
+                                        {card.description1.description}
+                                    </p>
+                                </div>
+                                <div className="flex-1">
+                                    <h4 className="text-base sm:text-lg lg:text-xl">
+                                        {card.description2.title}
+                                    </h4>
+                                    <p className="text-sm sm:text-base">
+                                        {card.description2.description}
+                                    </p>
+                                </div>
+                            </div>
+                            <p className="text-xs sm:text-sm lg:text-base">
+                                Tech Stack – {card.stack}
+                            </p>
+                            <div className="relative w-full h-48 sm:h-64 lg:h-80">
+                                <Image
                                     src={card.src}
-                                    alt="react.png"
+                                    alt={card.title}
                                     fill={true}
-                                    className="rounded-xl !relative"
-                                />*/}
+                                    className="rounded-xl object-cover"
+                                />
                             </div>
                         </div>
                     </div>
-
                 </motion.div>
             ))}
         </div>
