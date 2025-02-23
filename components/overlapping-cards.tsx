@@ -2,7 +2,6 @@
 
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa6";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 function useWindowSize() {
@@ -211,7 +210,7 @@ export default function OverlappingCards() {
                             </div>
                             <p>Tech Stack – {card.stack}</p>
                             <div className="flex-1 relative !h-auto !w-auto">
-                                <Image src={card.src} alt="react.png" fill className="rounded-xl !relative !h-auto !w-auto" />
+                                {/*<Image src={card.src} alt="react.png" fill className="rounded-xl !relative !h-auto !w-auto" />*/}
                             </div>
                         </div>
                     </div>
