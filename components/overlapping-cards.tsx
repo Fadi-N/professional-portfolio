@@ -1,12 +1,11 @@
 "use client";
 
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa6";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
+import {FaArrowRight} from "react-icons/fa6";
+import React, {useEffect, useState} from "react";
 
 function useWindowSize() {
-    const [windowSize, setWindowSize] = useState({ width: 1080, height: 1080 });
+    const [windowSize, setWindowSize] = useState({width: 1080, height: 1080});
 
     useEffect(() => {
         function handleResize() {
@@ -15,6 +14,7 @@ function useWindowSize() {
                 height: window.innerHeight,
             });
         }
+
         window.addEventListener("resize", handleResize);
         handleResize();
         return () => window.removeEventListener("resize", handleResize);
@@ -24,46 +24,20 @@ function useWindowSize() {
 }
 
 export default function OverlappingCards() {
-    const { scrollYProgress } = useScroll();
-    const { height } = useWindowSize();
+    const {scrollYProgress} = useScroll();
+    const {height} = useWindowSize();
+
+    const scaleFactor = height / 1080;
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        const percentage = latest * 100;
-        console.log(`Scroll: ${percentage.toFixed(2)}%`);
-    });
-
-    const isSmallScreen = height < 1080;
-
-    const cardTransforms = {
-        card1: {
-            input: [0, 0.35, 0.87],
-            output: [0, 0, 0],
-        },
-        card2: {
-            input: [0.23, 0.35, 0.83, 0.87],
-            output: isSmallScreen ? [-45, 45, 45, 0] : [-90, 90, 90, 0],
-        },
-        card3: {
-            input: [0.35, 0.5, 0.83, 0.87],
-            output: isSmallScreen ? [-135, 90, 90, 0] : [-270, 180, 180, 0],
-        },
-        card4: {
-            input: [0.5, 0.66, 0.83, 0.87],
-            output: isSmallScreen ? [-180, 135, 135, 0] : [-360, 270, 270, 0],
-        },
-        card5: {
-            input: [0.66, 0.81, 0.83, 0.87],
-            output: isSmallScreen ? [-225, 180, 180, 0] : [-450, 360, 360, 0],
-        },
-    };
+            const percentage = latest * 100;
+            console.log(`Scroll: ${percentage.toFixed(2)}%`);
+        }
+    );
 
     const cards = [
         {
-            cardY: useTransform(
-                scrollYProgress,
-                cardTransforms.card1.input,
-                cardTransforms.card1.output
-            ),
+            cardY: useTransform(scrollYProgress, [0, 0.35, .87], [0, 0, 0]),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -83,8 +57,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                cardTransforms.card2.input,
-                cardTransforms.card2.output
+                [0.23, 0.35, .83, .87],
+                [-200 * scaleFactor, 90 * scaleFactor, 90, 0]
             ),
             bgColor: "bg-[#79a978]",
             year: "2023",
@@ -105,8 +79,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                cardTransforms.card3.input,
-                cardTransforms.card3.output
+                [0.35, 0.5, .83, .87],
+                [-200 * scaleFactor, 180 * scaleFactor, 180, 0]
             ),
             bgColor: "bg-[#74b5a5]",
             year: "2022",
@@ -129,8 +103,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                cardTransforms.card4.input,
-                cardTransforms.card4.output
+                [0.5, 0.66, .83, .87],
+                [-200 * scaleFactor, 270 * scaleFactor, 270, 0]
             ),
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
@@ -153,8 +127,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                cardTransforms.card5.input,
-                cardTransforms.card5.output
+                [0.66, 0.81, .83, .87],
+                [-200 * scaleFactor, 360 * scaleFactor, 360, 0]
             ),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
@@ -181,7 +155,7 @@ export default function OverlappingCards() {
             {cards.map((card, index) => (
                 <motion.div
                     key={index}
-                    style={{ y: card.cardY }}
+                    style={{y: card.cardY}}
                     className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
                 >
                     <div className={`overlapping-card group text-white ${card.bgColor}`}>
@@ -193,13 +167,15 @@ export default function OverlappingCards() {
                             <div className="flex flex-col space-y-2">
                                 <div className="flex items-baseline md:items-center justify-between">
                                     <h1>{card.title}</h1>
-                                    <FaArrowRight className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45" />
+                                    <FaArrowRight
+                                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
                                 </div>
                                 <div className="hidden md:block">
                                     <h3>{card.subtitle}</h3>
                                 </div>
                             </div>
-                            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
+                            <div
+                                className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
                                 <div>
                                     <h4>{card.description1.title}</h4>
                                     <p>{card.description1.description}</p>
@@ -210,11 +186,17 @@ export default function OverlappingCards() {
                                 </div>
                             </div>
                             <p>Tech Stack – {card.stack}</p>
-                            <div className="flex-1 relative h-64 md:h-80 lg:h-96">
-                                <Image src={card.src} alt="react.png" fill className="rounded-xl !relative" />
+                            <div className="flex-1">
+                                {/*<Image
+                                    src={card.src}
+                                    alt="react.png"
+                                    fill={true}
+                                    className="rounded-xl !relative"
+                                />*/}
                             </div>
                         </div>
                     </div>
+
                 </motion.div>
             ))}
         </div>
