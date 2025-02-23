@@ -1,12 +1,12 @@
 "use client";
 
-import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
-import {FaArrowRight} from "react-icons/fa6";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 import Image from "next/image";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 function useWindowSize() {
-    const [windowSize, setWindowSize] = useState({width: 1080, height: 1080});
+    const [windowSize, setWindowSize] = useState({ width: 1080, height: 1080 });
 
     useEffect(() => {
         function handleResize() {
@@ -25,20 +25,21 @@ function useWindowSize() {
 }
 
 export default function OverlappingCards() {
-    const {scrollYProgress} = useScroll();
-    const {height} = useWindowSize();
+    const { scrollYProgress } = useScroll();
+    const { height, width } = useWindowSize();
 
-    const scaleFactor = height / 1080;
+    // Dynamiczne skalowanie z ograniczeniem maksymalnym
+    const scaleFactor = Math.min(height / 1080, width / 1920);
+    const cardSpacing = Math.min(90 * scaleFactor, 90);
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-            const percentage = latest * 100;
-            console.log(`Scroll: ${percentage.toFixed(2)}%`);
-        }
-    );
+        const percentage = latest * 100;
+        console.log(`Scroll: ${percentage.toFixed(2)}%`);
+    });
 
     const cards = [
         {
-            cardY: useTransform(scrollYProgress, [0, 0.35, .87], [0, 0, 0]),
+            cardY: useTransform(scrollYProgress, [0, 0.35, 0.87], [0, 0, 0]),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -58,8 +59,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.23, 0.35, .83, .87],
-                [90 * scaleFactor, 90 * scaleFactor, 90, 0]
+                [0.23, 0.35, 0.83, 0.87],
+                [-cardSpacing, cardSpacing, cardSpacing, 0]
             ),
             bgColor: "bg-[#79a978]",
             year: "2023",
@@ -80,8 +81,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.35, 0.5, .83, .87],
-                [-200 * scaleFactor, 180 * scaleFactor, 180, 0]
+                [0.35, 0.5, 0.83, 0.87],
+                [-cardSpacing * 2, cardSpacing * 2, cardSpacing * 2, 0]
             ),
             bgColor: "bg-[#74b5a5]",
             year: "2022",
@@ -104,8 +105,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.5, 0.66, .83, .87],
-                [-200 * scaleFactor, 270 * scaleFactor, 270, 0]
+                [0.5, 0.66, 0.83, 0.87],
+                [-cardSpacing * 3, cardSpacing * 3, cardSpacing * 3, 0]
             ),
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
@@ -128,8 +129,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.66, 0.81, .83, .87],
-                [-200 * scaleFactor, 360 * scaleFactor, 360, 0]
+                [0.66, 0.81, 0.83, 0.87],
+                [-cardSpacing * 4, cardSpacing * 4, cardSpacing * 4, 0]
             ),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
@@ -156,7 +157,7 @@ export default function OverlappingCards() {
             {cards.map((card, index) => (
                 <motion.div
                     key={index}
-                    style={{y: card.cardY}}
+                    style={{ y: card.cardY }}
                     className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
                 >
                     <div className={`overlapping-card group text-white ${card.bgColor}`}>
@@ -192,12 +193,11 @@ export default function OverlappingCards() {
                                     src={card.src}
                                     alt="react.png"
                                     fill={true}
-                                    className="rounded-xl !relative !h-[18.75rem]"
+                                    className="rounded-xl !relative !h-48 lg:!h-96"
                                 />
                             </div>
                         </div>
                     </div>
-
                 </motion.div>
             ))}
         </div>
