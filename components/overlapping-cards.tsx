@@ -210,8 +210,8 @@ export default function OverlappingCards() {
                                 </div>
                             </div>
                             <p>Tech Stack – {card.stack}</p>
-                            <div className="flex-1 relative !h-auto !w-auto">
-                                <Image src={card.src} alt="react.png" fill className="rounded-xl !relative !h-auto !w-auto" />
+                            <div className="flex-1 relative h-64 md:h-80 lg:h-96">
+                                <Image src={card.src} alt="react.png" fill className="rounded-xl !relative" />
                             </div>
                         </div>
                     </div>
