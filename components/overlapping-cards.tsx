@@ -1,6 +1,6 @@
 "use client";
 
-import {motion, useScroll, useTransform} from "framer-motion";
+import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import {FaArrowRight} from "react-icons/fa6";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
@@ -30,15 +30,15 @@ export default function OverlappingCards() {
 
     const scaleFactor = height / 1080;
 
-    /*useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
             const percentage = latest * 100;
             console.log(`Scroll: ${percentage.toFixed(2)}%`);
         }
-    );*/
+    );
 
     const cards = [
         {
-            cardY: useTransform(scrollYProgress, [0, 0.39, 1], [0, 0, -400 * scaleFactor]),
+            cardY: useTransform(scrollYProgress, [0, 0.35, 1], [0, 0, -400 * scaleFactor]),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -58,7 +58,7 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.23, 0.39, 1],
+                [0.23, 0.35, 1],
                 [-200 * scaleFactor, 90 * scaleFactor, -300 * scaleFactor]
             ),
             bgColor: "bg-[#79a978]",
@@ -80,7 +80,7 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.39, 0.52, 1],
+                [0.35, 0.5, 1],
                 [-200 * scaleFactor, 90 * scaleFactor, -200 * scaleFactor]
             ),
             bgColor: "bg-[#74b5a5]",
@@ -104,7 +104,7 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.52, 0.65, 1],
+                [0.5, 0.66, 1],
                 [-200 * scaleFactor, 90 * scaleFactor, -100 * scaleFactor]
             ),
             bgColor: "bg-[#6ba6ef]",
@@ -128,8 +128,8 @@ export default function OverlappingCards() {
         {
             cardY: useTransform(
                 scrollYProgress,
-                [0.65, 0.78, 1],
-                [-200 * scaleFactor, 90 * scaleFactor, 0 * scaleFactor]
+                [0.66, 0.81, 1],
+                [-200 * scaleFactor, 90 * scaleFactor, 0]
             ),
             bgColor: "bg-[#9c9cf8]",
             year: "2025",

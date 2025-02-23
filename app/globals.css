@@ -65,7 +65,7 @@
                 @apply relative h-auto;
 
                 .overlapping-card {
-                    @apply w-full h-[43.25rem] lg:h-[62.5rem] flex flex-col rounded-2xl;
+                    @apply w-full h-auto flex flex-col rounded-2xl;
 
                     .overlapping-card-header {
                         @apply flex justify-between p-4 xl:p-6 2xl:p-8 border-b;
