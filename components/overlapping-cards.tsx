@@ -59,7 +59,7 @@ export default function OverlappingCards() {
             cardY: useTransform(
                 scrollYProgress,
                 [0.23, 0.35, .83, .87],
-                [-200 * scaleFactor, 90 * scaleFactor, 90, 0]
+                [90 * scaleFactor, 90 * scaleFactor, 90, 0]
             ),
             bgColor: "bg-[#79a978]",
             year: "2023",
@@ -187,12 +187,12 @@ export default function OverlappingCards() {
                                 </div>
                             </div>
                             <p>Tech Stack – {card.stack}</p>
-                            <div className="flex-1">
+                            <div>
                                 <Image
                                     src={card.src}
                                     alt="react.png"
                                     fill={true}
-                                    className="rounded-xl !relative"
+                                    className="rounded-xl !relative !h-[18.75rem]"
                                 />
                             </div>
                         </div>
