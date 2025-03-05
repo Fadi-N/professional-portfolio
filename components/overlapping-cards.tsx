@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useMotionValueEvent, useScroll} from "framer-motion";
 import { FaArrowRight } from "react-icons/fa6";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 function useWindowSize() {
