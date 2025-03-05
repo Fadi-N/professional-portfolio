@@ -19,7 +19,7 @@ export default function OverlappingCards() {
                 title: "Smooth Animations & UI",
                 description: "GSAP-powered animations ensure seamless transitions and a dynamic user experience",
             },
-            stack: "JavaScript, React, Three.js, React Three Fiber, GSAP, Tailwind CSS",
+            stack: "JavaScript • React • Three.js • React Three Fiber • GSAP • Tailwind CSS",
             src: "/sample.jpg",
         },
         {
@@ -37,7 +37,7 @@ export default function OverlappingCards() {
                 title: "JSON-Driven & Real-Time Rendering",
                 description: "Every structure is powered by JSON, seamlessly converting into fully-rendered HTML.",
             },
-            stack: "JavaScript, React, Redux, Bootstrap 5, JSON",
+            stack: "JavaScript • React • Redux • Bootstrap 5 • JSON",
             src: "/sample.jpg",
         },
         {
@@ -57,7 +57,7 @@ export default function OverlappingCards() {
                 description:
                     "Easily book, cancel, and track trips. Built with Next.js and Prisma for seamless routing, authentication, and data management.",
             },
-            stack: "TypeScript, React, Next.js, Tailwind, Prisma",
+            stack: "TypeScript • React • Next.js • Tailwind • Prisma",
             src: "/sample.jpg",
         },
         {
@@ -77,7 +77,7 @@ export default function OverlappingCards() {
                 description:
                     "Automated order processing, reduced wait times, and better table management for an improved dining experience.",
             },
-            stack: "TypeScript, React, Next.js, Tailwind CSS, MongoDB, Stripe",
+            stack: "TypeScript • React • Next.js • Tailwind CSS • MongoDB • Stripe",
             src: "/sample.jpg",
         },
         {
@@ -97,7 +97,7 @@ export default function OverlappingCards() {
                 description:
                     "Convert documentation into quizzes to reinforce knowledge, test understanding, and improve developer engagement",
             },
-            stack: "React, FastAPI, Tailwind CSS, OpenAI API",
+            stack: "React • FastAPI • Tailwind CSS • OpenAI API",
             src: "/sample.jpg",
         },
     ];
@@ -138,7 +138,7 @@ export default function OverlappingCards() {
                                     </div>
                                 </div>
                             </div>
-                            <p>Tech Stack – {card.stack}</p>
+                            <p>Tech Stack • {card.stack}</p>
                         </div>
                     </div>
                 </div>

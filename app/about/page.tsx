@@ -123,7 +123,7 @@ const AboutPage = () => {
                                     className="transition-colors duration-300 group-hover:text-[#74b5a5]"
                                     href="mailto:fadinachawati17@gmail.com"
                                 >
-                                    fadinachawati17@gmail.com
+                                    <p>fadinachawati17@gmail.com</p>
                                 </a>
                                 <FaArrowRight
                                     className="transform transition-all duration-300 group-hover:-rotate-45 group-hover:text-[#74b5a5]"
