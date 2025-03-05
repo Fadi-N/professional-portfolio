@@ -117,10 +117,12 @@ export default function OverlappingCards() {
                         <div className="overlapping-card-body">
                             <div className="space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
                                 <div className="flex flex-col space-y-2">
-                                    <div className="flex items-baseline md:items-center justify-between">
+                                    <div className="flex items-start justify-between">
                                         <h1>{card.title}</h1>
-                                        <FaArrowRight
-                                            className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
+                                        <div className="pt-1">
+                                            <FaArrowRight
+                                                className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
+                                        </div>
                                     </div>
                                     <div className="hidden md:block">
                                         <h3>{card.subtitle}</h3>
