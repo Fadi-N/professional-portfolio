@@ -1,41 +1,9 @@
 "use client";
 
-import { useMotionValueEvent, useScroll} from "framer-motion";
 import { FaArrowRight } from "react-icons/fa6";
-import React, { useEffect, useState } from "react";
-
-function useWindowSize() {
-    const [windowSize, setWindowSize] = useState({ width: 1080, height: 1080 });
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowSize({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
-        }
-
-        window.addEventListener("resize", handleResize);
-        handleResize();
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    return windowSize;
-}
+import React from "react";
 
 export default function OverlappingCards() {
-    const { scrollYProgress } = useScroll();
-    const { height, width } = useWindowSize();
-
-    // Dynamiczne skalowanie z ograniczeniem maksymalnym
-    const scaleFactor = Math.min(height / 1080, width / 1920);
-    const cardSpacing = Math.min(90 * scaleFactor, 90);
-
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        const percentage = latest * 100;
-        console.log(`Scroll: ${percentage.toFixed(2)}%`);
-    });
-
     const cards = [
         {
             bgColor: "bg-[#ccb987]",
