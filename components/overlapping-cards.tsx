@@ -39,7 +39,6 @@ export default function OverlappingCards() {
 
     const cards = [
         {
-            cardY: useTransform(scrollYProgress, [0, 0.35, 0.87], [0, 0, 0]),
             bgColor: "bg-[#ccb987]",
             year: "2024",
             shortcut: "Website | 3D Model",
@@ -57,11 +56,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg",
         },
         {
-            cardY: useTransform(
-                scrollYProgress,
-                [0.23, 0.35, 0.83, 0.87],
-                [-cardSpacing, cardSpacing, cardSpacing, 0]
-            ),
+
             bgColor: "bg-[#79a978]",
             year: "2023",
             shortcut: "Website | PIM",
@@ -79,11 +74,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg",
         },
         {
-            cardY: useTransform(
-                scrollYProgress,
-                [0.35, 0.5, 0.83, 0.87],
-                [-cardSpacing * 2, cardSpacing * 2, cardSpacing * 2, 0]
-            ),
+
             bgColor: "bg-[#74b5a5]",
             year: "2022",
             shortcut: "Website | RentMe",
@@ -103,11 +94,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg",
         },
         {
-            cardY: useTransform(
-                scrollYProgress,
-                [0.5, 0.66, 0.83, 0.87],
-                [-cardSpacing * 3, cardSpacing * 3, cardSpacing * 3, 0]
-            ),
+
             bgColor: "bg-[#6ba6ef]",
             year: "2025",
             shortcut: "Website | Your Waiter | Coming soon",
@@ -127,11 +114,7 @@ export default function OverlappingCards() {
             src: "/sample.jpg",
         },
         {
-            cardY: useTransform(
-                scrollYProgress,
-                [0.66, 0.81, 0.83, 0.87],
-                [-cardSpacing * 4, cardSpacing * 4, cardSpacing * 4, 0]
-            ),
+
             bgColor: "bg-[#9c9cf8]",
             year: "2025",
             shortcut: "Website | AIGen | Coming soon",
@@ -155,9 +138,8 @@ export default function OverlappingCards() {
     return (
         <div className="overlapping-cards">
             {cards.map((card, index) => (
-                <motion.div
+                <div
                     key={index}
-                    style={{ y: card.cardY }}
                     className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
                 >
                     <div className={`overlapping-card group text-white ${card.bgColor}`}>
@@ -166,39 +148,33 @@ export default function OverlappingCards() {
                             <p>{card.shortcut}</p>
                         </div>
                         <div className="overlapping-card-body">
-                            <div className="flex flex-col space-y-2">
-                                <div className="flex items-baseline md:items-center justify-between">
-                                    <h1>{card.title}</h1>
-                                    <FaArrowRight
-                                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
+                            <div className="space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
+                                <div className="flex flex-col space-y-2">
+                                    <div className="flex items-baseline md:items-center justify-between">
+                                        <h1>{card.title}</h1>
+                                        <FaArrowRight
+                                            className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
+                                    </div>
+                                    <div className="hidden md:block">
+                                        <h3>{card.subtitle}</h3>
+                                    </div>
                                 </div>
-                                <div className="hidden md:block">
-                                    <h3>{card.subtitle}</h3>
-                                </div>
-                            </div>
-                            <div
-                                className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
-                                <div>
-                                    <h4>{card.description1.title}</h4>
-                                    <p>{card.description1.description}</p>
-                                </div>
-                                <div>
-                                    <h4>{card.description2.title}</h4>
-                                    <p>{card.description2.description}</p>
+                                <div
+                                    className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
+                                    <div>
+                                        <h4>{card.description1.title}</h4>
+                                        <p>{card.description1.description}</p>
+                                    </div>
+                                    <div>
+                                        <h4>{card.description2.title}</h4>
+                                        <p>{card.description2.description}</p>
+                                    </div>
                                 </div>
                             </div>
                             <p>Tech Stack – {card.stack}</p>
-                            <div>
-                                <Image
-                                    src={card.src}
-                                    alt="react.png"
-                                    fill={true}
-                                    className="rounded-xl !relative !h-48 lg:!h-96"
-                                />
-                            </div>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             ))}
         </div>
     );

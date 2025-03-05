@@ -62,10 +62,10 @@
             }
 
             .overlapping-cards {
-                @apply relative h-auto;
+                @apply relative h-auto space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14;
 
                 .overlapping-card {
-                    @apply w-full h-auto flex flex-col rounded-2xl;
+                    @apply w-full h-[30rem] md:h-[32rem] lg:h-[40rem] flex flex-col rounded-2xl;
 
                     .overlapping-card-header {
                         @apply flex justify-between p-4 xl:p-6 2xl:p-8 border-b;
@@ -75,7 +75,7 @@
                     }
 
                     .overlapping-card-body {
-                        @apply flex flex-col space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14 p-4 xl:p-6 2xl:p-8;
+                        @apply flex flex-col h-full justify-between p-4 xl:p-6 2xl:p-8;
 
                         p {
                             @apply text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl;
