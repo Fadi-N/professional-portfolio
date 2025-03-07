@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {Poppins} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import {Analytics} from "@vercel/analytics/react";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         <div className="container mx-auto">
             {children}
         </div>
+        <Analytics/>
       </body>
     </html>
   );
