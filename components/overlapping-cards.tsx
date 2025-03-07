@@ -7,62 +7,6 @@ export default function OverlappingCards() {
     const cards = [
         {
             bgColor: "bg-[#ccb987]",
-            year: "2024",
-            shortcut: "Website | 3D Model",
-            title: "Bringing the iPhone to life in 3D",
-            subtitle: "An immersive, real-time 3D experience built with Three.js & React Three Fiber",
-            description1: {
-                title: "360° Exploration",
-                description: "Interact with a fully-rendered iPhone model, exploring every detail from any angle.",
-            },
-            description2: {
-                title: "Smooth Animations & UI",
-                description: "GSAP-powered animations ensure seamless transitions and a dynamic user experience",
-            },
-            stack: "JavaScript • React • Three.js • React Three Fiber • GSAP • Tailwind CSS",
-            src: "/sample.jpg",
-        },
-        {
-
-            bgColor: "bg-[#79a978]",
-            year: "2023",
-            shortcut: "Website | PIM",
-            title: "Transforming Content Creation with PIM Editor",
-            subtitle: "A dynamic tool for building product pages, blogs, and fully customizable views",
-            description1: {
-                title: "Limitless Customization",
-                description: "Prebuilt components, sliders, and flexible content blocks allow for unique layouts.",
-            },
-            description2: {
-                title: "JSON-Driven & Real-Time Rendering",
-                description: "Every structure is powered by JSON, seamlessly converting into fully-rendered HTML.",
-            },
-            stack: "JavaScript • React • Redux • Bootstrap 5 • JSON",
-            src: "/sample.jpg",
-        },
-        {
-
-            bgColor: "bg-[#74b5a5]",
-            year: "2022",
-            shortcut: "Website | RentMe",
-            title: "A Seamless Property Rental Experience",
-            subtitle: "Effortless booking, secure authentication, and personalized listings in one platform.",
-            description1: {
-                title: "Smart Authentication & Filtering",
-                description:
-                    "NextAuth.js enables secure login and OAuth (Google & GitHub), while advanced filters and \"Favorites\" help users find and save top listings.",
-            },
-            description2: {
-                title: "Smooth Reservations & Performance",
-                description:
-                    "Easily book, cancel, and track trips. Built with Next.js and Prisma for seamless routing, authentication, and data management.",
-            },
-            stack: "TypeScript • React • Next.js • Tailwind • Prisma",
-            src: "/sample.jpg",
-        },
-        {
-
-            bgColor: "bg-[#6ba6ef]",
             year: "2025",
             shortcut: "Website | Your Waiter | Coming soon",
             title: "A Smart & Seamless Dining Experience",
@@ -81,10 +25,9 @@ export default function OverlappingCards() {
             src: "/sample.jpg",
         },
         {
-
-            bgColor: "bg-[#9c9cf8]",
+            bgColor: "bg-[#79a978]",
             year: "2025",
-            shortcut: "Website | AIGen | Coming soon",
+            shortcut: "Website | AIGen",
             title: "AI-Powered Code Documentation & Quiz Generator",
             subtitle: "Transforming code into clear documentation and interactive learning experiences.",
             description1: {
@@ -98,6 +41,60 @@ export default function OverlappingCards() {
                     "Convert documentation into quizzes to reinforce knowledge, test understanding, and improve developer engagement",
             },
             stack: "React • FastAPI • Tailwind CSS • OpenAI API",
+            src: "/sample.jpg",
+        },
+        {
+
+            bgColor: "bg-[#74b5a5]",
+            year: "2024",
+            shortcut: "Website | 3D Model",
+            title: "Bringing the iPhone to life in 3D",
+            subtitle: "An immersive, real-time 3D experience built with Three.js & React Three Fiber",
+            description1: {
+                title: "360° Exploration",
+                description: "Interact with a fully-rendered iPhone model, exploring every detail from any angle.",
+            },
+            description2: {
+                title: "Smooth Animations & UI",
+                description: "GSAP-powered animations ensure seamless transitions and a dynamic user experience",
+            },
+            stack: "JavaScript • React • Three.js • React Three Fiber • GSAP • Tailwind CSS",
+            src: "/sample.jpg",
+        },
+        {
+            bgColor: "bg-[#6ba6ef]",
+            year: "2023",
+            shortcut: "Website | PIM",
+            title: "Transforming Content Creation with PIM Editor",
+            subtitle: "A dynamic tool for building product pages, blogs, and fully customizable views",
+            description1: {
+                title: "Limitless Customization",
+                description: "Prebuilt components, sliders, and flexible content blocks allow for unique layouts.",
+            },
+            description2: {
+                title: "JSON-Driven & Real-Time Rendering",
+                description: "Every structure is powered by JSON, seamlessly converting into fully-rendered HTML.",
+            },
+            stack: "JavaScript • React • Redux • Bootstrap 5 • JSON",
+            src: "/sample.jpg",
+        },
+        {
+            bgColor: "bg-[#9c9cf8]",
+            year: "2022",
+            shortcut: "Website | RentMe",
+            title: "A Seamless Property Rental Experience",
+            subtitle: "Effortless booking, secure authentication, and personalized listings in one platform.",
+            description1: {
+                title: "Smart Authentication & Filtering",
+                description:
+                    "NextAuth.js enables secure login and OAuth (Google & GitHub), while advanced filters and \"Favorites\" help users find and save top listings.",
+            },
+            description2: {
+                title: "Smooth Reservations & Performance",
+                description:
+                    "Easily book, cancel, and track trips. Built with Next.js and Prisma for seamless routing, authentication, and data management.",
+            },
+            stack: "TypeScript • React • Next.js • Tailwind • Prisma",
             src: "/sample.jpg",
         },
     ];

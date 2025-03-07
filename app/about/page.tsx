@@ -103,12 +103,12 @@ const AboutPage = () => {
                             <div>
                                 <h5>Warsaw University of Technology</h5>
                                 <p>2023 - </p>
-                                <p>Computer Science</p>
+                                <p>Master of Science • Computer Science</p>
                             </div>
                             <div>
                                 <h5>Nicolaus Copernicus University</h5>
                                 <p>2019 - 2023</p>
-                                <p>Computer Science</p>
+                                <p>Bachelor of Engineering • Computer Science</p>
                             </div>
                         </div>
                     </div>

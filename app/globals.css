@@ -86,7 +86,7 @@
         }
 
         .hero-featured-contact {
-            @apply flex flex-col px-2 py-80 md:py-[25rem] space-y-2 md:space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12;
+            @apply flex flex-col px-2 py-80 md:py-[25rem] 2xl:py-[35rem] space-y-2 md:space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12;
 
             p {
                 @apply text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl;
