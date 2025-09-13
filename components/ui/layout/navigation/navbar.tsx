@@ -9,28 +9,28 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar hidden lg:flex">
-                <div className="navbar-logo">
+            <nav className="flex items-center justify-between bg-transparent px-4 lg:px-10 py-4 lg:py-6 text-base lg:text-lg border-b border-b-black/20 hidden lg:flex">
+                <div>
                     FADI NACHAWATI
                 </div>
-                <div className="navbar-links">
+                <div className="flex-1">
                     <div className="flex-1 flex justify-center space-x-3 lg:space-x-4 xl:space-x-5 2xl:space-x-6">
-                        <Link href="/public">HOME</Link>
-                        <Link href="/about">ABOUT</Link>
-                        <Link href="/public#contact">CONTACT</Link>
+                        <Link href="/public" className="transition-colors duration-300 hover:text-[#74b5a5]">HOME</Link>
+                        <Link href="/about" className="transition-colors duration-300 hover:text-[#74b5a5]">ABOUT</Link>
+                        <Link href="/public#contact" className="transition-colors duration-300 hover:text-[#74b5a5]">CONTACT</Link>
                     </div>
                 </div>
-                <div className="navbar-socials">
+                <div>
                     <div className="flex-1 flex justify-center space-x-3 lg:space-x-4 xl:space-x-5 2xl:space-x-6">
-                        <Link href="/CV.pdf" download>RESUME</Link>
-                        <Link href="https://www.linkedin.com/in/fadi-nachawati-64246b256/">LINKEDIN</Link>
-                        <Link href="https://github.com/Fadi-N">GITHUB</Link>
+                        <Link href="/CV.pdf" download className="transition-colors duration-300 hover:text-[#74b5a5]">RESUME</Link>
+                        <Link href="https://www.linkedin.com/in/fadi-nachawati-64246b256/" className="transition-colors duration-300 hover:text-[#74b5a5]">LINKEDIN</Link>
+                        <Link href="https://github.com/Fadi-N" className="transition-colors duration-300 hover:text-[#74b5a5]">GITHUB</Link>
                     </div>
                 </div>
             </nav>
 
-            <nav className="mobile-navbar lg:hidden">
-                <div className="navbar-logo">
+            <nav className="flex items-center justify-between bg-transparent px-4 lg:px-10 py-4 lg:py-6 text-base lg:text-lg border-b border-b-black/20 lg:hidden">
+                <div>
                     FADI NACHAWATI
                 </div>
                 <button onClick={() => setIsOpen(!isOpen)} className="text-2xl focus:outline-none">
@@ -39,7 +39,7 @@ const Navbar = () => {
             </nav>
 
             <div
-                className={`mobile-navbar-link ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+                className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 transform transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-6 text-[#bd80b8] text-2xl z-10 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <Link
                     href="/public"
                     onClick={() => setIsOpen(false)}

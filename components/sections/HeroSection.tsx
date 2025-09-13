@@ -19,10 +19,10 @@ const letterVariants = {
 
 export const HeroSection = () => {
     return (
-        <Section className="hero-intro space-y-8">
+        <Section className="flex flex-col items-center justify-between space-y-10 pt-10 md:pt-0 space-y-8">
                 <div className="flex items-center">
                     <motion.p
-                        className="hero-intro-paragraph"
+                        className="flex text-5xl md:text-[7rem] lg:text-[8.5rem] xl:text-[11.25rem] 2xl:text-[14rem] leading-8 md:leading-[7.5rem] lg:leading-[9rem] xl:leading-[12rem] 2xl:leading-[15rem]"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -61,7 +61,7 @@ export const HeroSection = () => {
 
                 <div>
                     <motion.p
-                        className="hero-intro-paragraph"
+                        className="flex text-5xl md:text-[7rem] lg:text-[8.5rem] xl:text-[11.25rem] 2xl:text-[14rem] leading-8 md:leading-[7.5rem] lg:leading-[9rem] xl:leading-[12rem] 2xl:leading-[15rem]"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -99,7 +99,7 @@ export const HeroSection = () => {
 
                 <div className="flex relative">
                     <motion.p
-                        className="hero-intro-paragraph"
+                        className="flex text-5xl md:text-[7rem] lg:text-[8.5rem] xl:text-[11.25rem] 2xl:text-[14rem] leading-8 md:leading-[7.5rem] lg:leading-[9rem] xl:leading-[12rem] 2xl:leading-[15rem]"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"

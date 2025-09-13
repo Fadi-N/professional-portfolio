@@ -100,18 +100,18 @@ export default function OverlappingCards() {
     ];
 
     return (
-        <div className="overlapping-cards">
+        <div className="relative h-auto space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
             {cards.map((card, index) => (
                 <div
                     key={index}
                     className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
                 >
-                    <div className={`overlapping-card group text-white ${card.bgColor}`}>
-                        <div className="overlapping-card-header">
-                            <p>{card.year}</p>
-                            <p>{card.shortcut}</p>
+                    <div className={`w-full h-[30rem] md:h-[32rem] lg:h-[40rem] flex flex-col rounded-2xl group text-white ${card.bgColor}`}>
+                        <div className="flex justify-between p-4 xl:p-6 2xl:p-8 border-b">
+                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">{card.year}</p>
+                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">{card.shortcut}</p>
                         </div>
-                        <div className="overlapping-card-body">
+                        <div className="flex flex-col h-full justify-between p-4 xl:p-6 2xl:p-8">
                             <div className="space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
                                 <div className="flex flex-col space-y-2">
                                     <div className="flex items-start justify-between">
@@ -137,7 +137,7 @@ export default function OverlappingCards() {
                                     </div>
                                 </div>
                             </div>
-                            <p>Tech Stack • {card.stack}</p>
+                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">Tech Stack • {card.stack}</p>
                         </div>
                     </div>
                 </div>

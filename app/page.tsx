@@ -8,7 +8,7 @@ import {ContactSection} from "@/components/sections/ContactSection";
 
 export default function Home() {
     return (
-        <div className="hero">
+        <div>
             <HeroSection/>
             <TechStackSection/>
             <ProjectsSection/>

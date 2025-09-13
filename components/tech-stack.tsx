@@ -58,7 +58,7 @@ const TechStack = () => {
                 <DefaultReveal delay={0.1 * index} key={index}>
                     <Link
                         key={index}
-                        className={`hero-stack group hover:cursor-pointer transition-all duration-300 ${
+                        className={`flex-1 flex items-center space-x-4 border-b py-4 md:py-6 lg:py-6 xl:py-8 2xl:py-10 group hover:cursor-pointer transition-all duration-300 ${
                             index === techStacks.length - 1 ? "md:col-span-2" : ""
                         }`}
                         href={stack.link}
@@ -70,7 +70,7 @@ const TechStack = () => {
                         <div className="flex-1">
                             <h5 className="transition-colors duration-300 group-hover:text-[#74b5a5]">{stack.title}</h5>
                             <div className="flex items-center justify-between">
-                                <p className="hero-stack-description transition-colors duration-300 group-hover:text-[#74b5a5]">{stack.description}</p>
+                                <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl transition-colors duration-300 group-hover:text-[#74b5a5]">{stack.description}</p>
                                 <FaArrowRight
                                     className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl transform transition-all duration-300 group-hover:-rotate-45 group-hover:text-[#74b5a5]"/>
                             </div>
