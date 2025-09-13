@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {Poppins} from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/ui/layout/navigation/navbar";
 import {Analytics} from "@vercel/analytics/react";
 import {Layout} from "@/components/ui/layout/layout";
 

@@ -10,10 +10,10 @@ import {DefaultReveal} from "@/components/ui/DefaultReveal";
 
 const AboutPage = () => {
     return (
-        <Section className="flex flex-col p-4 md:p-0">
-            <div className="flex-1 flex justify-between md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
+        <Section className="flex flex-col lg:pt-28">
+            <div className="flex-1 flex justify-between lg:gap-20">
                 <DefaultReveal
-                    className="hidden md:flex relative rounded xl:rounded-xl 2xl:rounded-2xl w-[300px] h-[400px] md:w-[350px] md:h-[467px] lg:w-[450px] lg:h-[600px] xl:w-[500px] xl:h-[667px] 2xl:w-[600px] 2xl:h-[800px]">
+                    className="hidden lg:flex relative rounded-lg w-[300px] h-[400px] lg:w-[450px] lg:h-[600px]">
                     <Image
                         src="/about-picture.jpg"
                         alt="react.png"
@@ -22,22 +22,20 @@ const AboutPage = () => {
                         className="rounded-xl"
                     />
                 </DefaultReveal>
-                <div className="flex-1 flex flex-col space-y-10 xl:space-y-12 2xl:space-y-14 py-4 lg:py-8 xl:py-10 2xl:py-12">
+                <div className="flex-1 flex flex-col space-y-10 py-4 lg:py-8 ">
                     <DefaultReveal delay={0.2}>
-                        <h1>Frontend Developer, </h1>
-                        <h1>Graduated in Computer Science, </h1>
-                        <h1>Building modern web apps.</h1>
+                        <h1>Frontend Developer, <br/>Graduated in Computer Science,<br/> Building modern web apps.</h1>
                     </DefaultReveal>
 
                     <DefaultReveal delay={0.3}>
-                        <p className="text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl">
+                        <p className="text-base lg:text-xl">
                             I&apos;m Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
                             smooth, fast, and good-looking web apps.
                             I am pursuing my Master&apos;s degree at the Warsaw University of Technology.
                         </p>
                     </DefaultReveal>
                     <DefaultReveal delay={0.4}>
-                        <p className="text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl">
+                        <p className="text-base lg:text-xl">
                             I mainly work with React and Next.js, creating scalable UX/UI and making sure everything
                             runs
                             fast and looks great.
@@ -47,7 +45,7 @@ const AboutPage = () => {
                     </DefaultReveal>
                 </div>
             </div>
-            <div className="flex-1 flex justify-between md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20 flex flex-col md:flex-row space-y-10 md:space-y-0 py-4 lg:py-8 xl:py-10 2xl:py-12">
+            <div className="flex-1 flex justify-between lg:space-x-12 flex-col lg:flex-row space-y-10 lg:space-y-0 py-4 lg:py-8">
                 <DefaultReveal className="flex-1 flex flex-col space-y-2">
                     <h4>Skills and Interest</h4>
                     <div className="flex flex-col space-y-4 text-sm">
@@ -83,13 +81,13 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </DefaultReveal>
-                <DefaultReveal className="flex-1 flex flex-col space-y-10 xl:space-y-12 2xl:space-y-14" delay={0.2}>
+                <DefaultReveal className="flex-1 flex flex-col space-y-10" delay={0.2}>
                     <div className="flex flex-col space-y-2">
                         <h4>Experience</h4>
                         <div className="flex flex-col space-y-4 text-sm">
                             <div>
-                                <h5>Schoenberger Germany Enterprises</h5>
-                                <p>03.2022 - </p>
+                                <h6>Digital Bunch</h6>
+                                <p className="text-black/50">2025 - </p>
                                 <p>
                                     Frontend Developer • React web apps • UI development • Performance optimization •
                                     Global
@@ -97,8 +95,17 @@ const AboutPage = () => {
                                 </p>
                             </div>
                             <div>
-                                <h5>Spółdzielnia Mieszkaniowa Kopernik</h5>
-                                <p>2019 - 2019</p>
+                                <h6>Schoenberger Germany Enterprises</h6>
+                                <p className="text-black/50">2022 - 2025</p>
+                                <p>
+                                    Frontend Developer • React web apps • UI development • Performance optimization •
+                                    Global
+                                    collaboration on UX
+                                </p>
+                            </div>
+                            <div>
+                                <h6>Spółdzielnia Mieszkaniowa Kopernik</h6>
+                                <p className="text-black/50">2019 - 2019</p>
                                 <p>
                                     Service Desk Consultant • IT support and troubleshooting • Assisting users with tech
                                     issues • Keeping systems running smoothly
@@ -110,13 +117,13 @@ const AboutPage = () => {
                         <h4>Education</h4>
                         <div className="flex flex-col space-y-4 text-sm">
                             <div>
-                                <h5>Warsaw University of Technology</h5>
-                                <p>2023 - </p>
+                                <h6>Warsaw University of Technology</h6>
+                                <p className="text-black/50">2023 - </p>
                                 <p>Master of Science • Computer Science</p>
                             </div>
                             <div>
-                                <h5>Nicolaus Copernicus University</h5>
-                                <p>2019 - 2023</p>
+                                <h6>Nicolaus Copernicus University</h6>
+                                <p className="text-black/50">2019 - 2023</p>
                                 <p>Bachelor of Engineering • Computer Science</p>
                             </div>
                         </div>
@@ -126,7 +133,7 @@ const AboutPage = () => {
                     <h4>Contact and Socials</h4>
                     <div className="flex flex-col space-y-4 text-sm">
                         <div>
-                            <h5>Email</h5>
+                            <h6>Email</h6>
                             <div className="flex items-center space-x-2 group ">
                                 <a
                                     className="transition-colors duration-300 group-hover:text-[#74b5a5]"
@@ -140,19 +147,19 @@ const AboutPage = () => {
                             </div>
                         </div>
                         <div>
-                            <h5>Social</h5>
+                            <h6>Social</h6>
                             <div className="flex space-x-2">
                                 <Link
                                     className="transition-colors duration-300 hover:text-[#74b5a5]"
                                     href="https://www.linkedin.com/in/fadi-nachawati-64246b256/"
                                 >
-                                    <FaLinkedinIn className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                    <FaLinkedinIn className="text-base lg:text-xl"/>
                                 </Link>
                                 <Link
                                     className="transition-colors duration-300 hover:text-[#74b5a5]"
                                     href="https://github.com/Fadi-N"
                                 >
-                                    <FaGithub className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"/>
+                                    <FaGithub className="text-base lg:text-xl"/>
                                 </Link>
                             </div>
                         </div>
