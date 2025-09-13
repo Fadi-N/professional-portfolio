@@ -1,9 +1,125 @@
 "use client";
 
 import { FaArrowRight } from "react-icons/fa6";
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+
+const scrollVariants = {
+    initial: { 
+        scale: 0.95,
+        opacity: 0.8,
+        y: 20
+    },
+    animate: { 
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: [0.25, 0.1, 0.25, 1]
+        }
+    }
+};
+
+const Card = ({ card, index }: { card: any, index: number }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+
+    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.9]);
+    const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0.8, 1, 1, 0.7]);
+    
+    // Track if card should have shadow (when it's the active/animating card)
+    const [hasShadow, setHasShadow] = useState(false);
+    
+    useEffect(() => {
+        const unsubscribe = scrollYProgress.on("change", (latest) => {
+            // Shadow on the active/animating card (center focus area)
+            setHasShadow(latest > 0.3 && latest < 0.7);
+        });
+        return unsubscribe;
+    }, [scrollYProgress]);
+
+    return (
+        <motion.div
+            ref={ref}
+            className="sticky flex items-center justify-center"
+            style={{ 
+                top: `${60 + index * 20}px`,
+                zIndex: 30 + index,
+                scale,
+                opacity
+            }}
+            variants={scrollVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: 0.3, margin: "0px 0px -100px 0px" }}
+        >
+            <motion.div 
+                className={`w-full h-[30rem] md:h-[32rem] lg:h-[40rem] flex flex-col rounded-2xl group text-white ${hasShadow ? 'shadow-lg' : ''} ${card.bgColor}`}
+                whileHover={{ 
+                    scale: 1.01,
+                    y: -5,
+                    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }
+                }}
+            >
+                <div className="flex justify-between p-4 xl:p-6 2xl:p-8 border-b">
+                    <p className="text-sm lg:text-base">{card.year}</p>
+                    <p className="text-sm lg:text-base">{card.shortcut}</p>
+                </div>
+                <div className="flex flex-col h-full justify-between p-4 xl:p-6 2xl:p-8">
+                    <div className="space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
+                        <div className="flex flex-col space-y-2">
+                            <div className="flex items-start justify-between">
+                                <h2>{card.title}</h2>
+                                <motion.div 
+                                    className="pt-1"
+                                    whileHover={{ 
+                                        scale: 1.1,
+                                        transition: { duration: 0.2 }
+                                    }}
+                                >
+                                    <FaArrowRight
+                                        className="size-6 lg:size-9 transform transition-transform duration-300 group-hover:-rotate-45"/>
+                                </motion.div>
+                            </div>
+                            <div className="hidden md:block">
+                                <h4>{card.subtitle}</h4>
+                            </div>
+                        </div>
+                        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
+                            <motion.div
+                                whileHover={{
+                                    y: -3,
+                                    transition: { duration: 0.4, ease: [0.19, 1, 0.22, 1] }
+                                }}
+                            >
+                                <h5>{card.description1.title}</h5>
+                                <p>{card.description1.description}</p>
+                            </motion.div>
+                            <motion.div
+                                whileHover={{
+                                    y: -3,
+                                    transition: { duration: 0.4, ease: [0.19, 1, 0.22, 1] }
+                                }}
+                            >
+                                <h5>{card.description2.title}</h5>
+                                <p>{card.description2.description}</p>
+                            </motion.div>
+                        </div>
+                    </div>
+                    <p className="text-sm lg:text-base">Tech Stack • {card.stack}</p>
+                </div>
+            </motion.div>
+        </motion.div>
+    );
+};
 
 export default function OverlappingCards() {
+    const { scrollYProgress } = useScroll();
+    
     const cards = [
         {
             bgColor: "bg-[#ccb987]",
@@ -100,47 +216,9 @@ export default function OverlappingCards() {
     ];
 
     return (
-        <div className="relative h-auto space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
+        <div className="relative h-auto space-y-3 lg:space-y-4">
             {cards.map((card, index) => (
-                <div
-                    key={index}
-                    className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
-                >
-                    <div className={`w-full h-[30rem] md:h-[32rem] lg:h-[40rem] flex flex-col rounded-2xl group text-white ${card.bgColor}`}>
-                        <div className="flex justify-between p-4 xl:p-6 2xl:p-8 border-b">
-                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">{card.year}</p>
-                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">{card.shortcut}</p>
-                        </div>
-                        <div className="flex flex-col h-full justify-between p-4 xl:p-6 2xl:p-8">
-                            <div className="space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
-                                <div className="flex flex-col space-y-2">
-                                    <div className="flex items-start justify-between">
-                                        <h1>{card.title}</h1>
-                                        <div className="pt-1">
-                                            <FaArrowRight
-                                                className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
-                                        </div>
-                                    </div>
-                                    <div className="hidden md:block">
-                                        <h3>{card.subtitle}</h3>
-                                    </div>
-                                </div>
-                                <div
-                                    className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
-                                    <div>
-                                        <h4>{card.description1.title}</h4>
-                                        <p>{card.description1.description}</p>
-                                    </div>
-                                    <div>
-                                        <h4>{card.description2.title}</h4>
-                                        <p>{card.description2.description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">Tech Stack • {card.stack}</p>
-                        </div>
-                    </div>
-                </div>
+                <Card key={index} card={card} index={index} />
             ))}
         </div>
     );

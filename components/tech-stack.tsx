@@ -2,7 +2,7 @@ import {FaReact, FaArrowRight} from "react-icons/fa";
 import {TbBrandNextjs, TbBrandTypescript} from "react-icons/tb";
 import {RiJavascriptLine} from "react-icons/ri";
 import {BsBootstrap} from "react-icons/bs";
-import {SiTailwindcss, SiFigma} from "react-icons/si";
+import {SiTailwindcss, SiFigma, SiMedusa, SiPayloadcms} from "react-icons/si";
 import Link from "next/link";
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
 
@@ -42,6 +42,18 @@ const techStacks = [
         description: "Utility-first CSS framework",
         link: "https://v2.tailwindcss.com/docs",
         icon: <SiTailwindcss size={32}/>
+    },
+    {
+        title: "Medusa.js",
+        description: "Flexible commerce platform",
+        link: "https://medusajs.com/",
+        icon: <SiMedusa size={32}/>
+    },
+    {
+        title: "Payload CMS",
+        description: "Headless CMS",
+        link: "https://payloadcms.com/",
+        icon: <SiPayloadcms size={32}/>
     },
     {
         title: "Figma",
