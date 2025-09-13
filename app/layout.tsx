@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import {Poppins} from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/ui/layout/navigation/navbar";
 import {Analytics} from "@vercel/analytics/react";
+import {Layout} from "@/components/ui/layout/layout";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -25,11 +26,10 @@ export default function RootLayout({
       <body
         className={poppins.variable}
       >
-        <Navbar />
-        <div className="container mx-auto">
-            {children}
-        </div>
-        <Analytics/>
+      <Layout>
+          {children}
+          <Analytics/>
+      </Layout>
       </body>
     </html>
   );

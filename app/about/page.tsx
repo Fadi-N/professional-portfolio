@@ -1,13 +1,18 @@
+'use client'
+
 import React from 'react';
 import Image from "next/image";
 import {FaArrowRight, FaGithub, FaLinkedinIn} from "react-icons/fa6";
 import Link from "next/link";
+import {Section} from "@/components/ui/Section";
+import {DefaultReveal} from "@/components/ui/DefaultReveal";
+
 
 const AboutPage = () => {
     return (
-        <main className="about">
+        <Section className="about">
             <div className="about-intro">
-                <div
+                <DefaultReveal
                     className="about-intro-image-container">
                     <Image
                         src="/about-picture.jpg"
@@ -16,30 +21,34 @@ const AboutPage = () => {
                         style={{objectFit: "cover"}}
                         className="rounded-xl"
                     />
-                </div>
+                </DefaultReveal>
                 <div className="about-intro-content-container">
-                    <div>
+                    <DefaultReveal delay={0.2}>
                         <h1>Frontend Developer, </h1>
                         <h1>Graduated in Computer Science, </h1>
                         <h1>Building modern web apps.</h1>
-                    </div>
+                    </DefaultReveal>
 
-                    <p>
-                        I&apos;m Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
-                        smooth, fast, and good-looking web apps.
-                        I am pursuing my Master&apos;s degree at the Warsaw University of Technology.
-                    </p>
-                    <p>
-                        I mainly work with React and Next.js, creating scalable UX/UI and making sure everything
-                        runs
-                        fast and looks great.
-                        I enjoy working with different teams, improving web performance, and bringing ideas to life
-                        through clean and efficient code.
-                    </p>
+                    <DefaultReveal delay={0.3}>
+                        <p>
+                            I&apos;m Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
+                            smooth, fast, and good-looking web apps.
+                            I am pursuing my Master&apos;s degree at the Warsaw University of Technology.
+                        </p>
+                    </DefaultReveal>
+                    <DefaultReveal delay={0.4}>
+                        <p>
+                            I mainly work with React and Next.js, creating scalable UX/UI and making sure everything
+                            runs
+                            fast and looks great.
+                            I enjoy working with different teams, improving web performance, and bringing ideas to life
+                            through clean and efficient code.
+                        </p>
+                    </DefaultReveal>
                 </div>
             </div>
             <div className="about-details">
-                <div className="flex-1 flex flex-col space-y-2">
+                <DefaultReveal className="flex-1 flex flex-col space-y-2">
                     <h4>Skills and Interest</h4>
                     <div className="flex flex-col space-y-4 text-sm">
                         <div>
@@ -73,8 +82,8 @@ const AboutPage = () => {
                             </p>
                         </div>
                     </div>
-                </div>
-                <div className="flex-1 flex flex-col space-y-10 xl:space-y-12 2xl:space-y-14">
+                </DefaultReveal>
+                <DefaultReveal className="flex-1 flex flex-col space-y-10 xl:space-y-12 2xl:space-y-14" delay={0.2}>
                     <div className="flex flex-col space-y-2">
                         <h4>Experience</h4>
                         <div className="flex flex-col space-y-4 text-sm">
@@ -112,8 +121,8 @@ const AboutPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="flex-1 flex flex-col space-y-2">
+                </DefaultReveal>
+                <DefaultReveal className="flex-1 flex flex-col space-y-2" delay={0.3}>
                     <h4>Contact and Socials</h4>
                     <div className="flex flex-col space-y-4 text-sm">
                         <div>
@@ -148,9 +157,9 @@ const AboutPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </DefaultReveal>
             </div>
-        </main>
+        </Section>
     );
 };
 

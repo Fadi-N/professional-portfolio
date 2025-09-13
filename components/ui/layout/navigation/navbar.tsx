@@ -9,15 +9,15 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar hidden md:flex">
+            <nav className="navbar hidden lg:flex">
                 <div className="navbar-logo">
                     FADI NACHAWATI
                 </div>
                 <div className="navbar-links">
                     <div className="flex-1 flex justify-center space-x-3 lg:space-x-4 xl:space-x-5 2xl:space-x-6">
-                        <Link href="/">HOME</Link>
+                        <Link href="/public">HOME</Link>
                         <Link href="/about">ABOUT</Link>
-                        <Link href="/#contact">CONTACT</Link>
+                        <Link href="/public#contact">CONTACT</Link>
                     </div>
                 </div>
                 <div className="navbar-socials">
@@ -29,7 +29,7 @@ const Navbar = () => {
                 </div>
             </nav>
 
-            <nav className="mobile-navbar md:hidden">
+            <nav className="mobile-navbar lg:hidden">
                 <div className="navbar-logo">
                     FADI NACHAWATI
                 </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
             <div
                 className={`mobile-navbar-link ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <Link
-                    href="/"
+                    href="/public"
                     onClick={() => setIsOpen(false)}
                 >
                     HOME
@@ -53,7 +53,7 @@ const Navbar = () => {
                     ABOUT
                 </Link>
                 <Link
-                    href="/#contact"
+                    href="/public#contact"
                     onClick={() => setIsOpen(false)}
                 >
                     CONTACT
