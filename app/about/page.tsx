@@ -6,161 +6,203 @@ import {FaArrowRight, FaGithub, FaLinkedinIn} from "react-icons/fa6";
 import Link from "next/link";
 import {Section} from "@/components/ui/Section";
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
+import { EXTERNAL_LINKS, CONTACT_INFO, COLORS } from "@/constants";
 
+const aboutData = {
+    hero: {
+        title: "Frontend Developer, <br/> Graduated in Computer Science, <br/> Building modern web apps.",
+        descriptions: [
+            "I'm Fadi, a Frontend Developer who loves building smooth, fast, and good-looking web apps. I am pursuing my Master's degree at the Warsaw University of Technology.",
+            "I mainly work with React and Next.js, creating scalable UX/UI and making sure everything runs fast and looks great. I enjoy working with different teams, improving web performance, and bringing ideas to life through clean and efficient code."
+        ],
+        image: {
+            src: "/about-picture.jpg",
+            alt: "Fadi Nachawati"
+        }
+    },
+    skills: {
+        title: "Skills and Interest",
+        paragraphs: [
+            "I'm always learning and looking for new ways to solve challenges. I enjoy working with ambitious teams that care about innovation, clean code, and creating great user experiences.",
+            "My frontend journey has taken me through all kinds of areas—building interactive UIs, optimizing performance, and working with design systems to make products more user-friendly. I also enjoy playing around with web animations, accessibility, and crafting smooth, responsive layouts.",
+            "Next.js has pushed me beyond just frontend, getting me into fullstack development—handling APIs, improving backend logic, and making sure everything runs smoothly from start to finish. I love building fast, scalable, and user-friendly web apps that just work.",
+            "Outside of coding, I'm all about traveling, watching sports, and gaming. Whether I'm exploring new places, cheering for my favorite teams, or getting lost in a great game, I always find ways to stay curious and have fun."
+        ]
+    },
+    experience: {
+        title: "Experience",
+        items: [
+            {
+                company: "Digital Bunch",
+                period: "2025 - ",
+                description: "Frontend Developer • React web apps • UI development • Performance optimization • Global collaboration on UX"
+            },
+            {
+                company: "Schoenberger Germany Enterprises",
+                period: "2022 - 2025",
+                description: "Frontend Developer • React web apps • UI development • Performance optimization • Global collaboration on UX"
+            },
+            {
+                company: "Spółdzielnia Mieszkaniowa Kopernik",
+                period: "2019 - 2019",
+                description: "Service Desk Consultant • IT support and troubleshooting • Assisting users with tech issues • Keeping systems running smoothly"
+            }
+        ]
+    },
+    education: {
+        title: "Education",
+        items: [
+            {
+                institution: "Warsaw University of Technology",
+                period: "2023 - ",
+                degree: "Master of Science • Computer Science"
+            },
+            {
+                institution: "Nicolaus Copernicus University",
+                period: "2019 - 2023",
+                degree: "Bachelor of Engineering • Computer Science"
+            }
+        ]
+    },
+    contact: {
+        title: "Contact and Socials",
+        email: CONTACT_INFO.EMAIL,
+        socials: [
+            {
+                name: "LinkedIn",
+                url: EXTERNAL_LINKS.LINKEDIN,
+                icon: FaLinkedinIn
+            },
+            {
+                name: "GitHub", 
+                url: EXTERNAL_LINKS.GITHUB,
+                icon: FaGithub
+            }
+        ]
+    }
+};
 
 const AboutPage = () => {
     return (
-        <Section className="flex flex-col lg:pt-28">
+        <Section className="flex flex-col gap-20 lg:pt-28">
+            {/* Hero Section */}
             <div className="flex-1 flex justify-between lg:gap-20">
                 <DefaultReveal
-                    className="hidden lg:flex relative rounded-lg w-[300px] h-[400px] lg:w-[450px] lg:h-[600px]">
+                    className="hidden lg:flex relative rounded-lg aspect-[3/4] flex-shrink-0 w-80 lg:w-2/5">
                     <Image
-                        src="/about-picture.jpg"
-                        alt="react.png"
+                        src={aboutData.hero.image.src}
+                        alt={aboutData.hero.image.alt}
                         layout="fill"
-                        style={{objectFit: "cover"}}
-                        className="rounded-xl"
+                        className="object-cover inset-0 rounded-xl"
                     />
                 </DefaultReveal>
-                <div className="flex-1 flex flex-col space-y-10 py-4 lg:py-8 ">
+                <div className="flex-1 flex flex-col space-y-10 py-4 lg:py-0">
                     <DefaultReveal delay={0.2}>
-                        <h1>Frontend Developer, <br/>Graduated in Computer Science,<br/> Building modern web apps.</h1>
+                        <h1 
+                            className="leading-[130%]"
+                            dangerouslySetInnerHTML={{ __html: aboutData.hero.title }}
+                        />
                     </DefaultReveal>
+                    <div className="flex flex-col gap-6">
+                        {aboutData.hero.descriptions.map((description, index) => (
+                            <DefaultReveal key={index} delay={0.3 + index * 0.1}>
+                                <p className="text-base lg:text-xl font-light">
+                                    {index === 0 ? (
+                                        <>
+                                            I'm Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
+                                            smooth, fast, and good-looking web apps.
+                                            I am pursuing my Master's degree at the Warsaw University of Technology.
+                                        </>
+                                    ) : (
+                                        description
+                                    )}
+                                </p>
+                            </DefaultReveal>
+                        ))}
+                    </div>
 
-                    <DefaultReveal delay={0.3}>
-                        <p className="text-base lg:text-xl">
-                            I&apos;m Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
-                            smooth, fast, and good-looking web apps.
-                            I am pursuing my Master&apos;s degree at the Warsaw University of Technology.
-                        </p>
-                    </DefaultReveal>
-                    <DefaultReveal delay={0.4}>
-                        <p className="text-base lg:text-xl">
-                            I mainly work with React and Next.js, creating scalable UX/UI and making sure everything
-                            runs
-                            fast and looks great.
-                            I enjoy working with different teams, improving web performance, and bringing ideas to life
-                            through clean and efficient code.
-                        </p>
-                    </DefaultReveal>
                 </div>
             </div>
+
+            {/* Details Section */}
             <div className="flex-1 flex justify-between lg:space-x-12 flex-col lg:flex-row space-y-10 lg:space-y-0 py-4 lg:py-8">
-                <DefaultReveal className="flex-1 flex flex-col space-y-2">
-                    <h4>Skills and Interest</h4>
+                {/* Skills */}
+                <DefaultReveal className="flex-1 flex flex-col gap-4">
+                    <h4>{aboutData.skills.title}</h4>
                     <div className="flex flex-col space-y-4 text-sm">
-                        <div>
-                            <p>
-                                I’m always learning and looking for new ways to solve challenges. I enjoy working with
-                                ambitious teams that care about innovation, clean code, and creating great user
-                                experiences.
-                            </p>
-                        </div>
-                        <div>
-                            <p>
-                                My frontend journey has taken me through all kinds of areas—building interactive UIs,
-                                optimizing performance, and working with design systems to make products more
-                                user-friendly. I also enjoy playing around with web animations, accessibility, and
-                                crafting smooth, responsive layouts.
-                            </p>
-                        </div>
-                        <div>
-                            <p>
-                                Next.js has pushed me beyond just frontend, getting me into fullstack
-                                development—handling APIs, improving backend logic, and making sure everything runs
-                                smoothly from start to finish. I love building fast, scalable, and user-friendly web
-                                apps that just work.
-                            </p>
-                        </div>
-                        <div>
-                            <p>
-                                Outside of coding, I’m all about traveling, watching sports, and gaming. Whether I’m
-                                exploring new places, cheering for my favorite teams, or getting lost in a great game, I
-                                always find ways to stay curious and have fun.
-                            </p>
-                        </div>
+                        {aboutData.skills.paragraphs.map((paragraph, index) => (
+                            <div key={index}>
+                                <p className="font-light leading-[160%]">{paragraph}</p>
+                            </div>
+                        ))}
                     </div>
                 </DefaultReveal>
+
+                {/* Experience & Education */}
                 <DefaultReveal className="flex-1 flex flex-col space-y-10" delay={0.2}>
-                    <div className="flex flex-col space-y-2">
-                        <h4>Experience</h4>
+                    <div className="flex flex-col gap-4">
+                        <h4>{aboutData.experience.title}</h4>
                         <div className="flex flex-col space-y-4 text-sm">
-                            <div>
-                                <h6>Digital Bunch</h6>
-                                <p className="text-black/50">2025 - </p>
-                                <p>
-                                    Frontend Developer • React web apps • UI development • Performance optimization •
-                                    Global
-                                    collaboration on UX
-                                </p>
-                            </div>
-                            <div>
-                                <h6>Schoenberger Germany Enterprises</h6>
-                                <p className="text-black/50">2022 - 2025</p>
-                                <p>
-                                    Frontend Developer • React web apps • UI development • Performance optimization •
-                                    Global
-                                    collaboration on UX
-                                </p>
-                            </div>
-                            <div>
-                                <h6>Spółdzielnia Mieszkaniowa Kopernik</h6>
-                                <p className="text-black/50">2019 - 2019</p>
-                                <p>
-                                    Service Desk Consultant • IT support and troubleshooting • Assisting users with tech
-                                    issues • Keeping systems running smoothly
-                                </p>
-                            </div>
+                            {aboutData.experience.items.map((item, index) => (
+                                <div key={index} className="flex flex-col gap-1.5">
+                                    <h6>{item.company}</h6>
+                                    <div>
+                                        <p className="font-light">{item.period}</p>
+                                        <p className="font-light leading-[160%]">{item.description}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                    <div className="flex flex-col space-y-2">
-                        <h4>Education</h4>
+                    <div className="flex flex-col gap-4">
+                        <h4>{aboutData.education.title}</h4>
                         <div className="flex flex-col space-y-4 text-sm">
-                            <div>
-                                <h6>Warsaw University of Technology</h6>
-                                <p className="text-black/50">2023 - </p>
-                                <p>Master of Science • Computer Science</p>
-                            </div>
-                            <div>
-                                <h6>Nicolaus Copernicus University</h6>
-                                <p className="text-black/50">2019 - 2023</p>
-                                <p>Bachelor of Engineering • Computer Science</p>
-                            </div>
+                            {aboutData.education.items.map((item, index) => (
+                                <div key={index} className="flex flex-col gap-1.5">
+                                    <h6>{item.institution}</h6>
+                                    <div>
+                                        <p className="font-light">{item.period}</p>
+                                        <p className="font-light leading-[160%]">{item.degree}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </DefaultReveal>
-                <DefaultReveal className="flex-1 flex flex-col space-y-2" delay={0.3}>
-                    <h4>Contact and Socials</h4>
+
+                {/* Contact */}
+                <DefaultReveal className="flex-1 flex flex-col gap-4" delay={0.3}>
+                    <h4>{aboutData.contact.title}</h4>
                     <div className="flex flex-col space-y-4 text-sm">
-                        <div>
+                        <div className="flex flex-col gap-1.5">
                             <h6>Email</h6>
-                            <div className="flex items-center space-x-2 group ">
+                            <div className="flex items-center space-x-2 group font-light">
+                                <FaArrowRight
+                                    className="transform transition-all duration-300 -rotate-45 group-hover:rotate-0 group-hover:text-[#74b5a5]"
+                                />
                                 <a
                                     className="transition-colors duration-300 group-hover:text-[#74b5a5]"
-                                    href="mailto:fadinachawati17@gmail.com"
+                                    href={`mailto:${aboutData.contact.email}`}
                                 >
-                                    <p>fadinachawati17@gmail.com</p>
+                                    <p>{aboutData.contact.email}</p>
                                 </a>
-                                <FaArrowRight
-                                    className="transform transition-all duration-300 group-hover:-rotate-45 group-hover:text-[#74b5a5]"
-                                />
                             </div>
                         </div>
-                        <div>
+                        <div className="flex flex-col gap-1.5">
                             <h6>Social</h6>
-                            <div className="flex space-x-2">
-                                <Link
-                                    className="transition-colors duration-300 hover:text-[#74b5a5]"
-                                    href="https://www.linkedin.com/in/fadi-nachawati-64246b256/"
-                                >
-                                    <FaLinkedinIn className="text-base lg:text-xl"/>
-                                </Link>
-                                <Link
-                                    className="transition-colors duration-300 hover:text-[#74b5a5]"
-                                    href="https://github.com/Fadi-N"
-                                >
-                                    <FaGithub className="text-base lg:text-xl"/>
-                                </Link>
+                            <div className="flex space-x-2 ">
+                                {aboutData.contact.socials.map((social, index) => {
+                                    const IconComponent = social.icon;
+                                    return (
+                                        <Link
+                                            key={index}
+                                            className="transition-colors duration-300 hover:text-[#74b5a5]"
+                                            href={social.url}
+                                        >
+                                            <IconComponent className="text-base lg:text-xl"/>
+                                        </Link>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>

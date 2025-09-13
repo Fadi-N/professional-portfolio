@@ -5,60 +5,61 @@ import {BsBootstrap} from "react-icons/bs";
 import {SiTailwindcss, SiFigma, SiMedusa, SiPayloadcms} from "react-icons/si";
 import Link from "next/link";
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
+import { TECH_LINKS } from "@/constants";
 
 const techStacks = [
     {
         title: "React",
         description: "A JavaScript library for building UI",
-        link: "https://react.dev",
+        link: TECH_LINKS.REACT,
         icon: <FaReact size={32}/>
     },
     {
         title: "Next.js",
         description: "The React framework for the web",
-        link: "https://nextjs.org/docs",
+        link: TECH_LINKS.NEXTJS,
         icon: <TbBrandNextjs size={32}/>
     },
     {
         title: "JavaScript",
         description: "The language of the web",
-        link: "https://devdocs.io/javascript/",
+        link: TECH_LINKS.JAVASCRIPT,
         icon: <RiJavascriptLine size={32}/>
     },
     {
         title: "TypeScript",
         description: "JavaScript with static types",
-        link: "https://www.typescriptlang.org/docs/",
+        link: TECH_LINKS.TYPESCRIPT,
         icon: <TbBrandTypescript size={32}/>
     },
     {
         title: "Bootstrap",
         description: "A responsive CSS framework",
-        link: "https://getbootstrap.com/docs/5.2/getting-started/introduction/",
+        link: TECH_LINKS.BOOTSTRAP,
         icon: <BsBootstrap size={32}/>
     },
     {
         title: "Tailwind CSS",
         description: "Utility-first CSS framework",
-        link: "https://v2.tailwindcss.com/docs",
+        link: TECH_LINKS.TAILWINDCSS,
         icon: <SiTailwindcss size={32}/>
     },
     {
         title: "Medusa.js",
         description: "Flexible commerce platform",
-        link: "https://medusajs.com/",
+        link: TECH_LINKS.MEDUSA,
         icon: <SiMedusa size={32}/>
     },
     {
         title: "Payload CMS",
         description: "Headless CMS",
-        link: "https://payloadcms.com/",
+        link: TECH_LINKS.PAYLOAD,
         icon: <SiPayloadcms size={32}/>
     },
     {
         title: "Figma",
         description: "Design and prototyping tool",
-        link: "https://help.figma.com/hc/en-us/categories/360002051613-Get-started",
+        link: TECH_LINKS.FIGMA,
         icon: <SiFigma size={32}/>
     },
 ];
