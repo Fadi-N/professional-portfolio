@@ -6,6 +6,7 @@ import {FaArrowRight, FaGithub, FaLinkedinIn} from "react-icons/fa6";
 import Link from "next/link";
 import {Section} from "@/components/ui/Section";
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
+import { motion } from 'framer-motion';
 import { EXTERNAL_LINKS, CONTACT_INFO, COLORS } from "@/constants";
 
 const aboutData = {
@@ -84,26 +85,26 @@ const aboutData = {
 
 const AboutPage = () => {
     return (
-        <Section className="flex flex-col gap-20 lg:pt-28">
+        <div className="flex flex-col lg:gap-20 pt-10 lg:pt-20">
             {/* Hero Section */}
-            <div className="flex-1 flex justify-between lg:gap-20">
+            <Section className="flex-1 flex flex-col lg:flex-row justify-between gap-6 lg:gap-20 lg:pb-0 pb-10">
                 <DefaultReveal
-                    className="hidden lg:flex relative rounded-lg aspect-[3/4] flex-shrink-0 w-80 lg:w-2/5">
+                    className="lg:flex relative rounded-lg aspect-[3/4] flex-shrink-0 lg:w-2/5">
                     <Image
                         src={aboutData.hero.image.src}
                         alt={aboutData.hero.image.alt}
                         layout="fill"
-                        className="object-cover inset-0 rounded-xl"
+                        className="object-cover inset-0 rounded-xl pointer-events-none"
                     />
                 </DefaultReveal>
-                <div className="flex-1 flex flex-col space-y-10 py-4 lg:py-0">
+                <div className="flex-1 flex flex-col gap-4 lg:gap-10 py-4 lg:py-0">
                     <DefaultReveal delay={0.2}>
                         <h1 
                             className="leading-[130%]"
                             dangerouslySetInnerHTML={{ __html: aboutData.hero.title }}
                         />
                     </DefaultReveal>
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col gap-4 lg:gap-6">
                         {aboutData.hero.descriptions.map((description, index) => (
                             <DefaultReveal key={index} delay={0.3 + index * 0.1}>
                                 <p className="text-base lg:text-xl font-light">
@@ -122,14 +123,14 @@ const AboutPage = () => {
                     </div>
 
                 </div>
-            </div>
+            </Section>
 
             {/* Details Section */}
-            <div className="flex-1 flex justify-between lg:space-x-12 flex-col lg:flex-row space-y-10 lg:space-y-0 py-4 lg:py-8">
+            <Section className="flex-1 flex justify-between flex-col gap-8 lg:gap-0 lg:flex-row lg:gap-x-16">
                 {/* Skills */}
-                <DefaultReveal className="flex-1 flex flex-col gap-4">
+                <DefaultReveal className="flex-1 flex flex-col gap-2 lg:gap-4">
                     <h4>{aboutData.skills.title}</h4>
-                    <div className="flex flex-col space-y-4 text-sm">
+                    <div className="flex flex-col gap-2 lg:gap-4 text-sm">
                         {aboutData.skills.paragraphs.map((paragraph, index) => (
                             <div key={index}>
                                 <p className="font-light leading-[160%]">{paragraph}</p>
@@ -139,10 +140,10 @@ const AboutPage = () => {
                 </DefaultReveal>
 
                 {/* Experience & Education */}
-                <DefaultReveal className="flex-1 flex flex-col space-y-10" delay={0.2}>
-                    <div className="flex flex-col gap-4">
+                <DefaultReveal className="flex-1 flex flex-col gap-8 lg:gap-10" delay={0.2}>
+                    <div className="flex flex-col gap-2 lg:gap-4">
                         <h4>{aboutData.experience.title}</h4>
-                        <div className="flex flex-col space-y-4 text-sm">
+                        <div className="flex flex-col gap-2 lg:gap-4 text-sm">
                             {aboutData.experience.items.map((item, index) => (
                                 <div key={index} className="flex flex-col gap-1.5">
                                     <h6>{item.company}</h6>
@@ -154,9 +155,9 @@ const AboutPage = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2 lg:gap-4">
                         <h4>{aboutData.education.title}</h4>
-                        <div className="flex flex-col space-y-4 text-sm">
+                        <div className="flex flex-col gap-2 lg:gap-4 text-sm">
                             {aboutData.education.items.map((item, index) => (
                                 <div key={index} className="flex flex-col gap-1.5">
                                     <h6>{item.institution}</h6>
@@ -171,14 +172,14 @@ const AboutPage = () => {
                 </DefaultReveal>
 
                 {/* Contact */}
-                <DefaultReveal className="flex-1 flex flex-col gap-4" delay={0.3}>
+                <DefaultReveal className="flex-1 flex flex-col gap-2 lg:gap-4" delay={0.3}>
                     <h4>{aboutData.contact.title}</h4>
-                    <div className="flex flex-col space-y-4 text-sm">
+                    <div className="flex flex-col gap-2 lg:gap-4 text-sm">
                         <div className="flex flex-col gap-1.5">
                             <h6>Email</h6>
-                            <div className="flex items-center space-x-2 group font-light">
+                            <div className="flex items-center gap-1 group font-light">
                                 <FaArrowRight
-                                    className="transform transition-all duration-300 -rotate-45 group-hover:rotate-0 group-hover:text-[#74b5a5]"
+                                    className="transform transition-all w-4 duration-300 -rotate-45 group-hover:rotate-0 group-hover:text-[#74b5a5]"
                                 />
                                 <a
                                     className="transition-colors duration-300 group-hover:text-[#74b5a5]"
@@ -207,8 +208,8 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </DefaultReveal>
-            </div>
-        </Section>
+            </Section>
+        </div>
     );
 };
 
