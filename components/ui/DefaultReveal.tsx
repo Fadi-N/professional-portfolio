@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import React, { CSSProperties, forwardRef } from 'react';
 
 interface Props extends React.ComponentPropsWithoutRef<typeof motion.div> {
