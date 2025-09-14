@@ -6,7 +6,7 @@ import { EXTERNAL_LINKS, CONTACT_INFO } from "@/constants";
 
 export const ContactSection = () => {
     return (
-        <Section id="contact" className="flex flex-col px-2 py-80 md:py-[25rem] 2xl:py-[35rem] space-y-2 md:space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12">
+        <Section id="contact" className="min-h-screen flex flex-col items-center justify-center px-2 space-y-2 lg:space-y-8 ">
             <DefaultReveal className="flex flex-col items-center justify-center space-y-2">
                 <h1 className="text-center">Need a Frontend Developer? <br/>Let&apos;s talk! 💬</h1>
                 <h4 className="text-center text-[#bd80b8] font-normal">We can team up and build something great. <br/> Drop me a message!</h4>
