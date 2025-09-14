@@ -17,7 +17,6 @@ export const DefaultReveal = forwardRef<HTMLDivElement, Props>(
     ref
   ) => {
     const transition = {
-      ease: 'easeOut',
       duration,
       delay,
       ...userTransition,
