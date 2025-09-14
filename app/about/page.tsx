@@ -6,8 +6,7 @@ import {FaArrowRight, FaGithub, FaLinkedinIn} from "react-icons/fa6";
 import Link from "next/link";
 import {Section} from "@/components/ui/Section";
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
-import { motion } from 'framer-motion';
-import { EXTERNAL_LINKS, CONTACT_INFO, COLORS } from "@/constants";
+import { EXTERNAL_LINKS, CONTACT_INFO } from "@/constants";
 
 const aboutData = {
     hero: {
@@ -110,9 +109,9 @@ const AboutPage = () => {
                                 <p className="text-base lg:text-xl font-light">
                                     {index === 0 ? (
                                         <>
-                                            I'm Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
+                                            I&apos;m Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
                                             smooth, fast, and good-looking web apps.
-                                            I am pursuing my Master's degree at the Warsaw University of Technology.
+                                            I am pursuing my Master&apos;s degree at the Warsaw University of Technology.
                                         </>
                                     ) : (
                                         description

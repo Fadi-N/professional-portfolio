@@ -1,6 +1,5 @@
 "use client";
 
-import { FaArrowRight } from "react-icons/fa6";
 import React from "react";
 
 export default function OverlappingCards() {
