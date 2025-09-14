@@ -2,6 +2,7 @@ import React from 'react';
 import {motion} from "motion/react";
 import Image from "next/image";
 import {Section} from "@/components/ui/Section";
+import {DefaultReveal} from "@/components/ui/DefaultReveal";
 
 const containerVariants = {
     hidden: {},
@@ -148,13 +149,13 @@ export const HeroSection = () => {
                     </motion.div>
                 </div>
 
-                <div className="flex items-center gap-2 lg:text-xl">
+                <DefaultReveal className="flex items-center gap-2 lg:text-xl">
                     <span className="relative flex size-2">
                         <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#00AC3A]"></span>
                         <span className="relative inline-flex size-2 rounded-full bg-[#00CA50]"></span>
                     </span>
                     <p>Open to Work</p>
-                </div>
+                </DefaultReveal>
             </Section>
     );
 };

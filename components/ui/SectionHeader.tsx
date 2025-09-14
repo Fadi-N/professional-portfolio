@@ -12,7 +12,7 @@ export const SectionHeader = ({ title, description, className = "", delay = 0 }:
     return (
         <DefaultReveal className={`flex flex-col gap-4 ${className}`} delay={delay}>
             <h1>{title}</h1>
-            <p className="text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl text-[#bd80b8] lg:max-w-5xl">
+            <p className="text-base lg:text-2xl text-[#bd80b8] lg:max-w-5xl">
                 {description}
             </p>
         </DefaultReveal>

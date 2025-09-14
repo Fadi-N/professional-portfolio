@@ -8,7 +8,7 @@ export default function OverlappingCards() {
         {
             bgColor: "bg-[#ccb987]",
             year: "2025",
-            shortcut: "Website | Your Waiter | Coming soon",
+            shortcut: ["Website", "Your Waiter", "Coming soon"],
             title: "A Smart & Seamless Dining Experience",
             subtitle: "QR code ordering, instant payments, and a seamless restaurant experience.",
             description1: {
@@ -21,13 +21,13 @@ export default function OverlappingCards() {
                 description:
                     "Automated order processing, reduced wait times, and better table management for an improved dining experience.",
             },
-            stack: "TypeScript • React • Next.js • Tailwind CSS • MongoDB • Stripe",
+            stack: ["TypeScript", "React", "Next.js", "Tailwind CSS", "MongoDB", "Stripe"],
             src: "/sample.jpg",
         },
         {
             bgColor: "bg-[#79a978]",
             year: "2025",
-            shortcut: "Website | AIGen",
+            shortcut: ["Website", "AIGen"],
             title: "AI-Powered Code Documentation & Quiz Generator",
             subtitle: "Transforming code into clear documentation and interactive learning experiences.",
             description1: {
@@ -40,14 +40,14 @@ export default function OverlappingCards() {
                 description:
                     "Convert documentation into quizzes to reinforce knowledge, test understanding, and improve developer engagement",
             },
-            stack: "React • FastAPI • Tailwind CSS • OpenAI API",
+            stack: ["React", "FastAPI", "Tailwind CSS", "OpenAI API"],
             src: "/sample.jpg",
         },
         {
 
             bgColor: "bg-[#74b5a5]",
             year: "2024",
-            shortcut: "Website | 3D Model",
+            shortcut: ["Website", "3D Model"],
             title: "Bringing the iPhone to life in 3D",
             subtitle: "An immersive, real-time 3D experience built with Three.js & React Three Fiber",
             description1: {
@@ -58,13 +58,13 @@ export default function OverlappingCards() {
                 title: "Smooth Animations & UI",
                 description: "GSAP-powered animations ensure seamless transitions and a dynamic user experience",
             },
-            stack: "JavaScript • React • Three.js • React Three Fiber • GSAP • Tailwind CSS",
+            stack: ["JavaScript", "React", "Three.js", "React Three Fiber", "GSAP", "Tailwind CSS"],
             src: "/sample.jpg",
         },
         {
             bgColor: "bg-[#6ba6ef]",
             year: "2023",
-            shortcut: "Website | PIM",
+            shortcut: ["Website", "PIM"],
             title: "Transforming Content Creation with PIM Editor",
             subtitle: "A dynamic tool for building product pages, blogs, and fully customizable views",
             description1: {
@@ -75,13 +75,13 @@ export default function OverlappingCards() {
                 title: "JSON-Driven & Real-Time Rendering",
                 description: "Every structure is powered by JSON, seamlessly converting into fully-rendered HTML.",
             },
-            stack: "JavaScript • React • Redux • Bootstrap 5 • JSON",
+            stack: ["JavaScript", "React", "Redux", "Bootstrap 5", "JSON"],
             src: "/sample.jpg",
         },
         {
             bgColor: "bg-[#9c9cf8]",
             year: "2022",
-            shortcut: "Website | RentMe",
+            shortcut: ["Website", "RentMe"],
             title: "A Seamless Property Rental Experience",
             subtitle: "Effortless booking, secure authentication, and personalized listings in one platform.",
             description1: {
@@ -94,50 +94,64 @@ export default function OverlappingCards() {
                 description:
                     "Easily book, cancel, and track trips. Built with Next.js and Prisma for seamless routing, authentication, and data management.",
             },
-            stack: "TypeScript • React • Next.js • Tailwind • Prisma",
+            stack: ["TypeScript", "React", "Next.js", "Tailwind", "Prisma"],
             src: "/sample.jpg",
         },
     ];
 
     return (
-        <div className="relative h-auto space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
+        <div className="relative h-auto flex flex-col gap-6 lg:gap-10 pt-4">
             {cards.map((card, index) => (
                 <div
                     key={index}
                     className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
                 >
-                    <div className={`w-full h-[30rem] md:h-[32rem] lg:h-[40rem] flex flex-col rounded-2xl group text-white ${card.bgColor}`}>
-                        <div className="flex justify-between p-4 xl:p-6 2xl:p-8 border-b">
-                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">{card.year}</p>
-                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">{card.shortcut}</p>
+                    <div className={`w-full h-[30rem] lg:h-[40rem] flex flex-col rounded-3xl group text-white ${card.bgColor}`}>
+                        <div className="flex justify-between p-6 border-b">
+                            <p className="text-sm lg:text-base font-light">{card.year}</p>
+                            <div className="flex flex-wrap items-center gap-2">
+                                {card.shortcut.map((item, itemIndex) => (
+                                    <span key={itemIndex} className="text-sm lg:text-base font-light">
+                                        {item}{itemIndex < card.shortcut.length - 1 && " |"}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-                        <div className="flex flex-col h-full justify-between p-4 xl:p-6 2xl:p-8">
-                            <div className="space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14">
+                        <div className="flex flex-col h-full justify-between p-6">
+                            <div className="flex flex-col gap-8 lg:gap-16">
                                 <div className="flex flex-col space-y-2">
                                     <div className="flex items-start justify-between">
                                         <h1>{card.title}</h1>
-                                        <div className="pt-1">
+                                        {/*<div className="pt-1">
                                             <FaArrowRight
-                                                className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl transform transition-transform duration-300 group-hover:-rotate-45"/>
-                                        </div>
+                                                className="size-[30px] lg:size-12 transform transition-transform duration-300 group-hover:rotate-0 -rotate-45"/>
+                                        </div>*/}
                                     </div>
                                     <div className="hidden md:block">
-                                        <h3>{card.subtitle}</h3>
+                                        <h3 className="text-2xl max-w-3xl">{card.subtitle}</h3>
                                     </div>
                                 </div>
                                 <div
-                                    className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 lg:space-x-12 xl:space-x-16 2xl:space-x-20">
-                                    <div>
-                                        <h4>{card.description1.title}</h4>
-                                        <p>{card.description1.description}</p>
+                                    className="flex flex-col lg:flex-row gap-4 lg:gap-20">
+                                    <div className="flex-1 flex flex-col gap-2">
+                                        <h5>{card.description1.title}</h5>
+                                        <p className="font-light">{card.description1.description}</p>
                                     </div>
-                                    <div>
-                                        <h4>{card.description2.title}</h4>
-                                        <p>{card.description2.description}</p>
+                                    <div className="flex-1 flex flex-col gap-2">
+                                        <h5>{card.description2.title}</h5>
+                                        <p className="font-light">{card.description2.description}</p>
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl">Tech Stack • {card.stack}</p>
+                            <div className="flex flex-wrap items-center jus gap-2">
+                                <span className="lg:text-base font-light">Tech Stack</span>
+                                <span className="font-light">•</span>
+                                {card.stack.map((tech, techIndex) => (
+                                    <span key={techIndex} className="text-sm lg:text-base font-light">
+                                        {tech}{techIndex < card.stack.length - 1 && " •"}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

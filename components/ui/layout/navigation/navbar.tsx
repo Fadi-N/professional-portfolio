@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="items-center justify-between bg-transparent px-4 lg:px-10 py-4 lg:py-6 text-base lg:text-xl border-b border-b-black/20 hidden lg:flex h-20">
+            <nav className="items-center justify-between bg-transparent px-4 lg:px-10 py-4 lg:py-6 text-base lg:text-lg hidden lg:flex h-20">
                 <div>
                     {CONTACT_INFO.NAME}
                 </div>
@@ -30,7 +30,7 @@ const Navbar = () => {
                 </div>
             </nav>
 
-            <nav className="flex items-center justify-between bg-transparent px-4 lg:px-10 py-4 lg:py-6 text-base lg:text-lg border-b border-b-black/20 lg:hidden">
+            <nav className="flex items-center justify-between bg-transparent px-4 lg:px-10 py-4 lg:py-6 text-base lg:text-lg lg:hidden">
                 <div>
                     {CONTACT_INFO.NAME}
                 </div>
