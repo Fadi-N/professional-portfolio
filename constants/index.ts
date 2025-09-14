@@ -3,7 +3,7 @@ export const ROUTES = {
   HOME: '/',
   ABOUT: '/about',
   RESUME: '/resume',
-  CONTACT: '#contact',
+  CONTACT: '/#contact',
 } as const;
 
 // External Links

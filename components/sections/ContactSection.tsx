@@ -1,7 +1,7 @@
 import React from 'react';
-import {FaArrowRight} from "react-icons/fa6";
 
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
+import {LinkWithIcon} from "@/components/ui/LinkWithIcon";
 import {Section} from "@/components/ui/Section";
 import { EXTERNAL_LINKS, CONTACT_INFO } from "@/constants";
 
@@ -15,22 +15,7 @@ export const ContactSection = () => {
             <DefaultReveal className="flex flex-col items-center justify-center">
                 <h6 className="text-center font-light">Contact me:</h6>
                 <h6 className="text-center font-light">
-                    <div className="group flex items-center space-x-2">
-                        <FaArrowRight
-                            className={`
-                              -rotate-45 transform transition-all duration-300
-                              group-hover:rotate-0 group-hover:text-[#74b5a5]
-                              lg:size-4
-                            `}
-                        />
-                        <a
-                            className="transition-colors duration-300 group-hover:text-[#74b5a5]"
-                            href={EXTERNAL_LINKS.EMAIL}
-                        >
-                            {CONTACT_INFO.EMAIL}
-                        </a>
-                    </div>
-
+                    <LinkWithIcon href={EXTERNAL_LINKS.EMAIL} title={CONTACT_INFO.EMAIL}/>
                 </h6>
             </DefaultReveal>
         </Section>

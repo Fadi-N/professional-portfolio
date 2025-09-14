@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from 'react';
-import {FaArrowRight, FaGithub, FaLinkedinIn} from "react-icons/fa6";
+import {FaGithub, FaLinkedinIn} from "react-icons/fa6";
 
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
+import {LinkWithIcon} from "@/components/ui/LinkWithIcon";
 import {Section} from "@/components/ui/Section";
 import { EXTERNAL_LINKS, CONTACT_INFO } from "@/constants";
 
@@ -176,20 +177,7 @@ const AboutPage = () => {
                     <div className="flex flex-col gap-2 text-sm lg:gap-4">
                         <div className="flex flex-col gap-1.5">
                             <h6>Email</h6>
-                            <div className="group flex items-center gap-1 font-light">
-                                <FaArrowRight
-                                    className={`
-                                      w-4 -rotate-45 transform transition-all duration-300
-                                      group-hover:rotate-0 group-hover:text-[#74b5a5]
-                                    `}
-                                />
-                                <a
-                                    className="transition-colors duration-300 group-hover:text-[#74b5a5]"
-                                    href={`mailto:${aboutData.contact.email}`}
-                                >
-                                    <p>{aboutData.contact.email}</p>
-                                </a>
-                            </div>
+                            <LinkWithIcon href={EXTERNAL_LINKS.EMAIL} title={CONTACT_INFO.EMAIL}/>
                         </div>
                         <div className="flex flex-col gap-1.5">
                             <h6>Social</h6>

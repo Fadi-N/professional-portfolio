@@ -19,7 +19,7 @@ const Navbar = () => {
                     <div className="flex flex-1 justify-center space-x-3 lg:space-x-6">
                         <Link href={ROUTES.HOME} className="transition-colors duration-300 hover:text-[#74b5a5]">HOME</Link>
                         <Link href={ROUTES.ABOUT} className="transition-colors duration-300 hover:text-[#74b5a5]">ABOUT</Link>
-                        <Link href={ROUTES.CONTACT} className="transition-colors duration-300 hover:text-[#74b5a5]">CONTACT</Link>
+                        <a href={ROUTES.CONTACT} className="transition-colors duration-300 hover:text-[#74b5a5]">CONTACT</a>
                     </div>
                 </div>
                 <div>
@@ -58,12 +58,12 @@ const Navbar = () => {
                 >
                     ABOUT
                 </Link>
-                <Link
+                <a
                     href={ROUTES.CONTACT}
                     onClick={() => { setIsOpen(false); }}
                 >
                     CONTACT
-                </Link>
+                </a>
                 <Link
                     href={EXTERNAL_LINKS.RESUME_PDF}
                     onClick={() => { setIsOpen(false); }}
