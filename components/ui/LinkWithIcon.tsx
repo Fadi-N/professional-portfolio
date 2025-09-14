@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import React from 'react';
 import {FaArrowRight} from "react-icons/fa6";
