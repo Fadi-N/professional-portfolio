@@ -1,8 +1,9 @@
-import React from 'react';
 import {motion} from "motion/react";
 import Image from "next/image";
-import {Section} from "@/components/ui/Section";
+import React from 'react';
+
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
+import {Section} from "@/components/ui/Section";
 
 const containerVariants = {
     hidden: {},
@@ -20,10 +21,10 @@ const letterVariants = {
 
 export const HeroSection = () => {
     return (
-        <Section className="flex flex-col items-center justify-between pt-10 lg:pt-28 space-y-8">
+        <Section className="flex flex-col items-center justify-between space-y-8 pt-10 lg:pt-28">
                 <div className="flex items-center">
                     <motion.p
-                        className="flex text-5xl lg:text-[8.5rem] leading-8 lg:leading-[9rem]"
+                        className="flex text-5xl leading-8 lg:text-[8.5rem] lg:leading-[9rem]"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -48,7 +49,7 @@ export const HeroSection = () => {
                         </motion.span>
                     </motion.p>
                     <motion.div
-                        className="items-center hidden lg:flex"
+                        className="hidden items-center lg:flex"
                         initial={{rotate: 0, opacity: 0}}
                         animate={{rotate: 360, opacity: 1}}
                         transition={{
@@ -62,7 +63,7 @@ export const HeroSection = () => {
 
                 <div>
                     <motion.p
-                        className="flex text-5xl lg:text-[8.5rem] leading-8 lg:leading-[9rem]"
+                        className="flex text-5xl leading-8 lg:text-[8.5rem] lg:leading-[9rem]"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -98,15 +99,15 @@ export const HeroSection = () => {
                     </motion.p>
                 </div>
 
-                <div className="flex relative">
+                <div className="relative flex">
                     <motion.p
-                        className="flex text-5xl lg:text-[8.5rem] leading-8 lg:leading-[9rem]"
+                        className="flex text-5xl leading-8 lg:text-[8.5rem] lg:leading-[9rem]"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
                     >
                         {"DEVEL".split("").map((letter, index) => (
-                            <motion.span key={`devel-${index}`} variants={letterVariants}>
+                            <motion.span key={`devel-${index.toString()}`} variants={letterVariants}>
                                 {letter}
                             </motion.span>
                         ))}
@@ -114,7 +115,7 @@ export const HeroSection = () => {
                             (
                         </motion.span>
                         {"PER".split("").map((letter, index) => (
-                            <motion.span key={`per-${index}`} variants={letterVariants}>
+                            <motion.span key={`per-${index.toString()}`} variants={letterVariants}>
                                 {letter}
                             </motion.span>
                         ))}
@@ -136,7 +137,7 @@ export const HeroSection = () => {
                         </motion.span>
                     </motion.p>
                     <motion.div
-                        className="absolute end-0 bottom-0 hidden md:block"
+                        className="absolute bottom-0 end-0 hidden md:block"
                         initial={{opacity: 0, x: 0, y: 0}}
                         animate={{opacity: 1, x: [0, -300, 0], y: [0, -200, 0]}}
                         transition={{
@@ -151,8 +152,8 @@ export const HeroSection = () => {
 
                 <DefaultReveal className="flex items-center gap-2 lg:text-xl">
                     <span className="relative flex size-2">
-                        <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#00AC3A]"></span>
-                        <span className="relative inline-flex size-2 rounded-full bg-[#00CA50]"></span>
+                        <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#00AC3A]" />
+                        <span className="relative inline-flex size-2 rounded-full bg-[#00CA50]" />
                     </span>
                     <p>Open to Work</p>
                 </DefaultReveal>

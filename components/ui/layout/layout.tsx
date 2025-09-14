@@ -1,6 +1,7 @@
 import React from 'react';
-import Navbar from "@/components/ui/layout/navigation/navbar";
 import {twMerge} from "tailwind-merge";
+
+import Navbar from "@/components/ui/layout/navigation/navbar";
 
 
 interface Props {

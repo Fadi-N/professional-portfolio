@@ -99,24 +99,24 @@ export default function OverlappingCards() {
     ];
 
     return (
-        <div className="relative h-auto flex flex-col gap-6 lg:gap-10 pt-4">
+        <div className="relative flex h-auto flex-col gap-6 pt-4 lg:gap-10">
             {cards.map((card, index) => (
                 <div
                     key={index}
-                    className="sticky top-10 lg:top-20 flex items-center justify-center z-30"
+                    className="sticky top-10 z-30 flex items-center justify-center lg:top-20"
                 >
-                    <div className={`w-full h-[30rem] lg:h-[40rem] flex flex-col rounded-3xl group text-white ${card.bgColor}`}>
-                        <div className="flex justify-between p-6 border-b">
-                            <p className="text-sm lg:text-base font-light">{card.year}</p>
+                    <div className={`group flex h-[30rem] w-full flex-col rounded-3xl text-white lg:h-[40rem] ${card.bgColor}`}>
+                        <div className="flex justify-between border-b p-6">
+                            <p className="text-sm font-light lg:text-base">{card.year}</p>
                             <div className="flex flex-wrap items-center gap-2">
                                 {card.shortcut.map((item, itemIndex) => (
-                                    <span key={itemIndex} className="text-sm lg:text-base font-light">
+                                    <span key={itemIndex} className="text-sm font-light lg:text-base">
                                         {item}{itemIndex < card.shortcut.length - 1 && " |"}
                                     </span>
                                 ))}
                             </div>
                         </div>
-                        <div className="flex flex-col h-full justify-between p-6">
+                        <div className="flex h-full flex-col justify-between p-6">
                             <div className="flex flex-col gap-8 lg:gap-16">
                                 <div className="flex flex-col space-y-2">
                                     <div className="flex items-start justify-between">
@@ -127,26 +127,26 @@ export default function OverlappingCards() {
                                         </div>*/}
                                     </div>
                                     <div className="hidden md:block">
-                                        <h3 className="text-2xl max-w-3xl">{card.subtitle}</h3>
+                                        <h3 className="max-w-3xl text-2xl">{card.subtitle}</h3>
                                     </div>
                                 </div>
                                 <div
-                                    className="flex flex-col lg:flex-row gap-4 lg:gap-20">
-                                    <div className="flex-1 flex flex-col gap-2">
+                                    className="flex flex-col gap-4 lg:flex-row lg:gap-20">
+                                    <div className="flex flex-1 flex-col gap-2">
                                         <h5>{card.description1.title}</h5>
                                         <p className="font-light">{card.description1.description}</p>
                                     </div>
-                                    <div className="flex-1 flex flex-col gap-2">
+                                    <div className="flex flex-1 flex-col gap-2">
                                         <h5>{card.description2.title}</h5>
                                         <p className="font-light">{card.description2.description}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-wrap items-center jus gap-2">
-                                <span className="lg:text-base font-light">Tech Stack</span>
+                            <div className="flex flex-wrap items-center gap-2">
+                                <span className="font-light lg:text-base">Tech Stack</span>
                                 <span className="font-light">•</span>
                                 {card.stack.map((tech, techIndex) => (
-                                    <span key={techIndex} className="text-sm lg:text-base font-light">
+                                    <span key={techIndex} className="text-sm font-light lg:text-base">
                                         {tech}{techIndex < card.stack.length - 1 && " •"}
                                     </span>
                                 ))}

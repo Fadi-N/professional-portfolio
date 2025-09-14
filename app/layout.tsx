@@ -1,7 +1,8 @@
+import {Analytics} from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import {Poppins} from "next/font/google";
 import "./globals.css";
-import {Analytics} from "@vercel/analytics/react";
+
 import {Layout} from "@/components/ui/layout/layout";
 
 const poppins = Poppins({

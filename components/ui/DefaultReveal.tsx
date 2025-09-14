@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import React, { CSSProperties, forwardRef } from 'react';
+import type { CSSProperties} from 'react';
+import React, { forwardRef } from 'react';
 
 interface Props extends React.ComponentPropsWithoutRef<typeof motion.div> {
   children: React.ReactNode;

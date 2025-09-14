@@ -29,7 +29,7 @@ const config = [
   },
 
   {
-    files: ['src/**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -58,8 +58,7 @@ const config = [
     },
     settings: {
       'better-tailwindcss': {
-        entryPoint: 'src/styles/globals.css',
-        config: './tailwind.config.js',
+        config: './tailwind.config.ts',
       },
       react: {
         version: 'detect',
@@ -93,7 +92,7 @@ const config = [
         { detectComponentClasses: true },
       ],
       'better-tailwindcss/enforce-consistent-line-wrapping': [
-        'warn',
+        'error',
         { printWidth: 140, preferSingleLine: true },
       ],
 

@@ -1,9 +1,10 @@
-import {FaReact, FaArrowRight} from "react-icons/fa";
-import {TbBrandNextjs, TbBrandTypescript} from "react-icons/tb";
-import {RiJavascriptLine} from "react-icons/ri";
-import {BsBootstrap} from "react-icons/bs";
-import {SiTailwindcss, SiFigma, SiMedusa, SiPayloadcms} from "react-icons/si";
 import Link from "next/link";
+import {BsBootstrap} from "react-icons/bs";
+import {FaReact, FaArrowRight} from "react-icons/fa";
+import {RiJavascriptLine} from "react-icons/ri";
+import {SiTailwindcss, SiFigma, SiMedusa, SiPayloadcms} from "react-icons/si";
+import {TbBrandNextjs, TbBrandTypescript} from "react-icons/tb";
+
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
 import { TECH_LINKS } from "@/constants";
 
@@ -66,26 +67,39 @@ const techStacks = [
 
 const TechStack = () => {
     return (
-        <div className="grid md:grid-cols-2 gap-x-16">
+        <div className="grid gap-x-16 md:grid-cols-2">
             {techStacks.map((stack, index) => (
                 <DefaultReveal delay={0.1 * index} key={index}>
                     <Link
                         key={index}
-                        className={`flex-1 flex items-center gap-x-4 border-b py-4 lg:py-8 group hover:cursor-pointer transition-all duration-300 ${
-                            index === techStacks.length - 1 ? "lg::col-span-2" : ""
+                        className={`
+                          group flex flex-1 items-center gap-x-4 border-b py-4 transition-all duration-300
+                          hover:cursor-pointer
+                          lg:py-8
+                          ${
+                            index === techStacks.length - 1 ? "lg:col-span-2" : ""
                         }`}
                         href={stack.link}
                     >
                         <div
-                            className="flex items-center justify-between border rounded-lg xl:rounded-xl 2xl:rounded-2xl p-2 transition-colors duration-300 group-hover:text-[#74b5a5]">
+                            className={`
+                              flex items-center justify-between rounded-lg border p-2 transition-colors duration-300
+                              group-hover:text-[#74b5a5]
+                              xl:rounded-xl
+                              2xl:rounded-2xl
+                            `}>
                             {stack.icon}
                         </div>
                         <div className="flex-1">
                             <h5 className="transition-colors duration-300 group-hover:text-[#74b5a5]">{stack.title}</h5>
                             <div className="flex items-center justify-between">
-                                <p className="text-sm transition-colors duration-300 text-black/50 group-hover:text-[#74b5a5]">{stack.description}</p>
+                                <p className="text-sm text-black/50 transition-colors duration-300 group-hover:text-[#74b5a5]">{stack.description}</p>
                                 <FaArrowRight
-                                    className="size-4 lg:size-5 transform transition-all duration-300 group-hover:-rotate-0 -rotate-45 group-hover:text-[#74b5a5]"/>
+                                    className={`
+                                      size-4 -rotate-45 transform transition-all duration-300
+                                      group-hover:-rotate-0 group-hover:text-[#74b5a5]
+                                      lg:size-5
+                                    `}/>
                             </div>
                         </div>
                     </Link>

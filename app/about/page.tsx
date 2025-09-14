@@ -1,11 +1,12 @@
 'use client'
 
-import React from 'react';
 import Image from "next/image";
-import {FaArrowRight, FaGithub, FaLinkedinIn} from "react-icons/fa6";
 import Link from "next/link";
-import {Section} from "@/components/ui/Section";
+import React from 'react';
+import {FaArrowRight, FaGithub, FaLinkedinIn} from "react-icons/fa6";
+
 import {DefaultReveal} from "@/components/ui/DefaultReveal";
+import {Section} from "@/components/ui/Section";
 import { EXTERNAL_LINKS, CONTACT_INFO } from "@/constants";
 
 const aboutData = {
@@ -84,19 +85,18 @@ const aboutData = {
 
 const AboutPage = () => {
     return (
-        <div className="flex flex-col lg:gap-20 pt-10 lg:pt-20">
+        <div className="flex flex-col pt-10 lg:gap-20 lg:pt-20">
             {/* Hero Section */}
-            <Section className="flex-1 flex flex-col lg:flex-row justify-between gap-6 lg:gap-20 lg:pb-0 pb-10">
-                <DefaultReveal
-                    className="lg:flex relative rounded-lg aspect-[3/4] flex-shrink-0 lg:w-2/5">
+            <Section className="flex flex-1 flex-col justify-between gap-6 pb-10 lg:flex-row lg:gap-20 lg:pb-0">
+                <DefaultReveal className="relative aspect-[3/4] flex-shrink-0 rounded-lg lg:flex lg:w-2/5">
                     <Image
                         src={aboutData.hero.image.src}
                         alt={aboutData.hero.image.alt}
                         layout="fill"
-                        className="object-cover inset-0 rounded-xl pointer-events-none"
+                        className="pointer-events-none inset-0 rounded-xl object-cover"
                     />
                 </DefaultReveal>
-                <div className="flex-1 flex flex-col gap-4 lg:gap-10 py-4 lg:py-0">
+                <div className="flex flex-1 flex-col gap-4 py-4 lg:gap-10 lg:py-0">
                     <DefaultReveal delay={0.2}>
                         <h1 
                             className="leading-[130%]"
@@ -106,7 +106,7 @@ const AboutPage = () => {
                     <div className="flex flex-col gap-4 lg:gap-6">
                         {aboutData.hero.descriptions.map((description, index) => (
                             <DefaultReveal key={index} delay={0.3 + index * 0.1}>
-                                <p className="text-base lg:text-xl font-light">
+                                <p className="text-base font-light lg:text-xl">
                                     {index === 0 ? (
                                         <>
                                             I&apos;m Fadi, a <span className="text-[#bd80b8]">Frontend Developer</span> who loves building
@@ -125,11 +125,11 @@ const AboutPage = () => {
             </Section>
 
             {/* Details Section */}
-            <Section className="flex-1 flex justify-between flex-col gap-8 lg:gap-0 lg:flex-row lg:gap-x-16">
+            <Section className="flex flex-1 flex-col justify-between gap-8 lg:flex-row lg:gap-0 lg:gap-x-16">
                 {/* Skills */}
-                <DefaultReveal className="flex-1 flex flex-col gap-2 lg:gap-4">
+                <DefaultReveal className="flex flex-1 flex-col gap-2 lg:gap-4">
                     <h4>{aboutData.skills.title}</h4>
-                    <div className="flex flex-col gap-2 lg:gap-4 text-sm">
+                    <div className="flex flex-col gap-2 text-sm lg:gap-4">
                         {aboutData.skills.paragraphs.map((paragraph, index) => (
                             <div key={index}>
                                 <p className="font-light leading-[160%]">{paragraph}</p>
@@ -139,10 +139,10 @@ const AboutPage = () => {
                 </DefaultReveal>
 
                 {/* Experience & Education */}
-                <DefaultReveal className="flex-1 flex flex-col gap-8 lg:gap-10" delay={0.2}>
+                <DefaultReveal className="flex flex-1 flex-col gap-8 lg:gap-10" delay={0.2}>
                     <div className="flex flex-col gap-2 lg:gap-4">
                         <h4>{aboutData.experience.title}</h4>
-                        <div className="flex flex-col gap-2 lg:gap-4 text-sm">
+                        <div className="flex flex-col gap-2 text-sm lg:gap-4">
                             {aboutData.experience.items.map((item, index) => (
                                 <div key={index} className="flex flex-col gap-1.5">
                                     <h6>{item.company}</h6>
@@ -156,7 +156,7 @@ const AboutPage = () => {
                     </div>
                     <div className="flex flex-col gap-2 lg:gap-4">
                         <h4>{aboutData.education.title}</h4>
-                        <div className="flex flex-col gap-2 lg:gap-4 text-sm">
+                        <div className="flex flex-col gap-2 text-sm lg:gap-4">
                             {aboutData.education.items.map((item, index) => (
                                 <div key={index} className="flex flex-col gap-1.5">
                                     <h6>{item.institution}</h6>
@@ -171,14 +171,17 @@ const AboutPage = () => {
                 </DefaultReveal>
 
                 {/* Contact */}
-                <DefaultReveal className="flex-1 flex flex-col gap-2 lg:gap-4" delay={0.3}>
+                <DefaultReveal className="flex flex-1 flex-col gap-2 lg:gap-4" delay={0.3}>
                     <h4>{aboutData.contact.title}</h4>
-                    <div className="flex flex-col gap-2 lg:gap-4 text-sm">
+                    <div className="flex flex-col gap-2 text-sm lg:gap-4">
                         <div className="flex flex-col gap-1.5">
                             <h6>Email</h6>
-                            <div className="flex items-center gap-1 group font-light">
+                            <div className="group flex items-center gap-1 font-light">
                                 <FaArrowRight
-                                    className="transform transition-all w-4 duration-300 -rotate-45 group-hover:rotate-0 group-hover:text-[#74b5a5]"
+                                    className={`
+                                      w-4 -rotate-45 transform transition-all duration-300
+                                      group-hover:rotate-0 group-hover:text-[#74b5a5]
+                                    `}
                                 />
                                 <a
                                     className="transition-colors duration-300 group-hover:text-[#74b5a5]"
@@ -190,7 +193,7 @@ const AboutPage = () => {
                         </div>
                         <div className="flex flex-col gap-1.5">
                             <h6>Social</h6>
-                            <div className="flex space-x-2 ">
+                            <div className="flex space-x-2">
                                 {aboutData.contact.socials.map((social, index) => {
                                     const IconComponent = social.icon;
                                     return (
